@@ -1,0 +1,49 @@
+<meta>
+    <info author="Mzansi-ZA Team" name="Mzansi-ZA" description="South African Roleplay Environment" version="1.0.0" type="script" />
+
+    <script src="shared/class.lua" type="shared" />
+    <script src="shared/enums.lua" type="shared" />
+    <script src="shared/util.lua" type="shared" />
+    <script src="shared/config.lua" type="shared" />
+
+    <script src="server/db.lua" type="server" />
+    <script src="server/acl.lua" type="server" />
+    <script src="server/player.lua" type="server" />
+    <script src="server/events.lua" type="server" />
+    <script src="server/spawn.lua" type="server" />
+    <script src="server/commands.lua" type="server" />
+    <script src="server/bank.lua" type="server" />
+    <script src="server/mdt.lua" type="server" />
+    <script src="server/registration.lua" type="server" />
+    <script src="server/jobs.lua" type="server" />
+    <script src="server/faction.lua" type="server" />
+    <script src="server/assets.lua" type="server" />
+    <script src="server/vehicles.lua" type="server" />
+    <script src="server/businesses.lua" type="server" />
+    <script src="server/map_assets.lua" type="server" />
+    <script src="server/streaming.lua" type="server" />
+    <script src="server/properties.lua" type="server" />
+    <script src="server/police_ems.lua" type="server" />
+    <script src="server/world.lua" type="server" />
+    <script src="server/main.lua" type="server" />
+
+    <script src="client/main.lua" type="client" />
+    <script src="client/cef.lua" type="client" />
+    <script src="client/assets.lua" type="client" />
+    <script src="client/hud.lua" type="client" />
+    <script src="client/ui_bridge.lua" type="client" />
+    <script src="client/content_loader.lua" type="client" />
+    <script src="client/interaction.lua" type="client" />
+
+    <file src="ui/index.html" />
+    <file src="ui/app.js" />
+    <file src="ui/style.css" />
+    <file src="ui/bank.html" />
+    <file src="ui/mdt.html" />
+    <file src="ui/register.html" />
+    <file src="ui/property.html" />
+
+    <export function="getPlayerCharacter" type="server" />
+    <export function="savePlayerCharacter" type="server" />
+    <export function="spawnPlayerAtLocation" type="server" />
+</meta>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mzansi-ZA Register</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #111; color: #fff; }
+        .panel { width: 420px; margin: 40px auto; padding: 20px; background: #202020; border-radius: 12px; }
+        input, select, button { width: 100%; margin-top: 10px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h2>Create Character</h2>
+        <input id="firstName" placeholder="First Name" title="First Name" />
+        <input id="lastName" placeholder="Last Name" title="Last Name" />
+        <select id="job" title="Job">
+            <option value="0">Civilian</option>
+            <option value="1">SAPS Officer</option>
+            <option value="2">EMS Medic</option>
+            <option value="3">Mechanic</option>
+            <option value="4">Business Owner</option>
+        </select>
+        <select id="faction" title="Faction">
+            <option value="0">Civilian</option>
+            <option value="1">SAPS</option>
+            <option value="2">EMS</option>
+            <option value="3">Civilian</option>
+        </select>
+        <button onclick="registerCharacter()">Create Character</button>
+        <div id="status"></div>
+    </div>
+    <script>
+        function registerCharacter() {
+            const payload = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                job: Number(document.getElementById('job').value),
+                faction: Number(document.getElementById('faction').value)
+            };
+            window.parent.postMessage({ type: 'mzansi:createCharacter', payload }, '*');
+            document.getElementById('status').innerText = 'Submitting character...';
+        }
+        window.addEventListener('message', function (event) {
+            if (event.data && event.data.type === 'mzansi:registrationResult') {
+                const status = document.getElementById('status');
+                status.innerText = event.data.success ? 'Character created successfully.' : ('Registration failed: ' + (event.data.result || 'unknown error'));
+            }
+        });
+    </script>
+</body>
+</html>

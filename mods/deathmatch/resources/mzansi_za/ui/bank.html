@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mzansi-ZA Bank</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #111; color: #fff; }
+        .panel { width: 420px; margin: 40px auto; padding: 20px; background: #1d1d1d; border-radius: 12px; }
+        h2 { margin-top: 0; }
+        input, button { width: 100%; margin-top: 10px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h2>Mzansi-ZA Banking</h2>
+        <p>Deposit or withdraw funds from your character account.</p>
+        <input id="amount" type="number" placeholder="Amount" title="Amount" />
+        <button onclick="deposit()">Deposit</button>
+        <button onclick="withdraw()">Withdraw</button>
+        <div id="status"></div>
+    </div>
+    <script>
+        function deposit() {
+            const amount = Number(document.getElementById('amount').value || 0);
+            window.parent.postMessage({ type: 'mzansi:bank:action', action: 'deposit', amount }, '*');
+            document.getElementById('status').innerText = 'Submitting deposit request...';
+        }
+        function withdraw() {
+            const amount = Number(document.getElementById('amount').value || 0);
+            window.parent.postMessage({ type: 'mzansi:bank:action', action: 'withdraw', amount }, '*');
+            document.getElementById('status').innerText = 'Submitting withdrawal request...';
+        }
+        window.addEventListener('message', function (event) {
+            if (event.data && event.data.type === 'mzansi:bank:result') {
+                const status = document.getElementById('status');
+                status.innerText = event.data.success ? ('Bank action completed: ' + (event.data.message || 'ok')) : ('Bank action failed: ' + (event.data.message || 'unknown error'));
+            }
+        });
+    </script>
+</body>
+</html>

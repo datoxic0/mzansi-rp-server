@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mzansi-ZA Properties</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f1b22; color: #fff; }
+        .panel { width: 760px; margin: 30px auto; padding: 20px; background: #142a33; border-radius: 12px; }
+        .item { padding: 10px; margin: 8px 0; background: rgba(255,255,255,0.06); border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h2>Property Market</h2>
+        <div id="items"></div>
+    </div>
+    <script>
+        const properties = [
+            { name: 'Johannesburg Executive Flat', region: 'Johannesburg', rent: 1200 },
+            { name: 'Cape Town Waterfront Office', region: 'Cape Town', rent: 2500 },
+            { name: 'Pretoria Medical House', region: 'Pretoria', rent: 1900 }
+        ];
+        document.getElementById('items').innerHTML = properties.map(function (property) {
+            return '<div class="item"><strong>' + property.name + '</strong><br />Region: ' + property.region + '<br />Rent: R' + property.rent + '</div>';
+        }).join('');
+    </script>
+</body>
+</html>

@@ -20,6 +20,7 @@ mods/deathmatch/server-id.keys
 mods/deathmatch/internal.db
 mods/deathmatch/registry.db
 mods/deathmatch/databases/
+*.db
 
 # Disabled Total Conversion Binary IMG Archives (>60MB each)
 *.img

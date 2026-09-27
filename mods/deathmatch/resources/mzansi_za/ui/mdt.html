@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mzansi-ZA MDT</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0e1426; color: #fff; }
+        .panel { width: 720px; margin: 30px auto; padding: 20px; background: #17233c; border-radius: 12px; }
+        input, button { padding: 8px; margin-right: 8px; }
+    </style>
+</head>
+<body>
+    <div class="panel">
+        <h2>MDT Console</h2>
+        <input id="query" placeholder="Search player or account" title="Search player or account" />
+        <button onclick="search()">Search</button>
+        <div id="results"></div>
+    </div>
+    <script>
+        function search() {
+            const query = document.getElementById('query').value;
+            window.parent.postMessage({ type: 'mzansi:mdt:search', query }, '*');
+        }
+        window.addEventListener('message', function (event) {
+            if (event.data && event.data.type === 'mzansi:mdt:response') {
+                const results = document.getElementById('results');
+                results.innerHTML = (event.data.results || []).map(function (item) {
+                    return '<div>' + item.name + ' — ' + item.type + '</div>';
+                }).join('') || '<div>No results found.</div>';
+            }
+        });
+    </script>
+</body>
+</html>
