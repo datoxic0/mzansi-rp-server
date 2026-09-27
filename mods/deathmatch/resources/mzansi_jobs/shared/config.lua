@@ -264,6 +264,7 @@ Mzansi.Config.Businesses = {
 }
 
 Mzansi.Config.Zones = {
+    { name = "Free State", minX = -2650.0, maxX = -2050.0, minY = 2150.0, maxY = 2600.0 },
     { name = "Los Santos", minX = -2994.0, maxX = 2994.0, minY = -2994.0, maxY = 880.0 },
     { name = "Bone County", minX = -1461.0, maxX = 556.0, minY = 880.0, maxY = 2500.0 },
     { name = "Tierra Robada", minX = -1461.0, maxX = -461.0, minY = 880.0, maxY = 2000.0 },

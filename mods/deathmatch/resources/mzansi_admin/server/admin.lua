@@ -450,6 +450,13 @@ addEventHandler("mzansi:admin:setAdminLevel", root, function(targetSerial, newLe
             end
 
             adminLog(actor, "SET_ADMIN", player, "level=" .. newLevel)
+            if newLevel >= 1 then
+                triggerEvent("mzansi:admin:promoted", root, player)
+                local housingRes = getResourceFromName("mzansi_housing")
+                if housingRes and getResourceState(housingRes) == "running" then
+                    pcall(exports.mzansi_housing.assignAdminHouse, exports.mzansi_housing, player)
+                end
+            end
             triggerClientEvent(actor, "mzansi:admin:success", actor,
                 getPlayerName(player) .. " admin level set to " .. newLevel)
             return

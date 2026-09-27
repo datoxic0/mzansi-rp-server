@@ -19,6 +19,7 @@
     <script src="server/landmarks.lua" type="server" />
     <script src="server/interiors.lua" type="server" />
     <script src="server/airport_traffic.lua" type="server" />
+    <script src="server/military_and_helis.lua" type="server" />
 
     <!-- Client Scripts -->
     <script src="client/ai_controller.lua" type="client" />

@@ -11,4 +11,5 @@
     <script src="shared/enums.lua" type="client" />
     <script src="shared/util.lua" type="client" />
     <script src="client/housing_client.lua" type="client" />
+    <export function="assignAdminHouse" type="server" />
 </meta>

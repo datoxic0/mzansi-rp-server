@@ -97,7 +97,7 @@ Mzansi.Drugs.Config.TrafficRoutes = {
         name = "International Smuggle",
         start = { x = 2400.5, y = -2200.5, z = 13.5 },
         dropoffs = {
-            { name = "Airport Drop", x = 1682.5, y = -2267.0, z = 13.5, pay = 15000 },
+            { name = "Airport Drop", x = 1635.0, y = -2220.0, z = 13.5, pay = 15000 },
             { name = "Dock Drop", x = 2400.5, y = -2400.5, z = 13.5, pay = 12000 },
         },
     },

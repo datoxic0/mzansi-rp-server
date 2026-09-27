@@ -242,17 +242,17 @@ local AIRPORT_CONFIG = {
         id = "ctia",
         name = "Cape Town International Airport (CTIA)",
         city = "Western Cape",
-        x = 1686.0, y = -2238.0, z = 13.5,
-        arrival = { x = 1680.0, y = -2245.0, z = 13.5, rot = 180 },
+        x = 1686.0, y = -2245.0, z = 13.5,
+        arrival = { x = 1680.0, y = -2250.0, z = 13.5, rot = 180 },
         cost = 450
     },
     {
         id = "ksia",
         name = "King Shaka International Airport (KSIA)",
         city = "KwaZulu-Natal (Durban)",
-        -- Shifted 9m north of the native GTA SA yellow EnEx doorway at (-1420, -287) to prevent marker conflict
-        x = -1424.0, y = -278.0, z = 14.1,
-        arrival = { x = -1425.0, y = -295.0, z = 14.1, rot = 135 },
+        -- Positioned outside directly on the open runway tarmac apron in plain view of the runway and planes
+        x = -1380.0, y = -245.0, z = 14.1,
+        arrival = { x = -1375.0, y = -240.0, z = 14.1, rot = 135 },
         cost = 450
     },
     {
@@ -731,7 +731,7 @@ local EXPANSION_PORTALS = {
         name = "Orbital Station Alpha - Descent Pod",
         destination = "Cape Town Space Elevator (Dimension 0)",
         entry = { x = 10.0, y = 10.0, z = 500.0, dim = 40, int = 0 },
-        exit = { x = 1682.5, y = -2267.0, z = 13.5, dim = 0, int = 0, rot = 0 },
+        exit = { x = 1715.0, y = -2250.0, z = 13.5, dim = 0, int = 0, rot = 0 },
         markerColor = { 200, 170, 50, 180 },
         vehicleAllowed = true
     },
@@ -790,7 +790,7 @@ local EXPANSION_PORTALS = {
         name = "Abyssal Station Thetis - Emergency Ascent Pod",
         destination = "Port of Durban Surface (Dimension 0)",
         entry = { x = 210.0, y = -3040.0, z = -10995.0, dim = 50, int = 0 },
-        exit = { x = -1580.0, y = 65.0, z = 3.5, dim = 0, int = 0, rot = 0 },
+        exit = { x = -1565.0, y = 85.0, z = 3.5, dim = 0, int = 0, rot = 0 },
         markerColor = { 200, 170, 50, 180 },
         vehicleAllowed = true
     },

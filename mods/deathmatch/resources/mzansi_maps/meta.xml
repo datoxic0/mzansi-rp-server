@@ -1,14 +1,7 @@
 <meta>
-    <info author="Mzansi Development Team" name="mzansi_maps" description="Custom Maps and Interiors - Including Custom-City-LS Island" version="2.0.0" type="map" />
+    <info author="Mzansi Development Team" name="mzansi_maps" description="Custom Maps and Interiors" version="2.0.0" type="map" />
 
-    <!-- Existing Maps -->
+    <!-- Pure San Andreas Roleplay Maps -->
     <map src="maps/taxi_rank.map" dimension="0" />
     <map src="maps/saps_hq.map" dimension="0" />
-
-    <!-- Multiverse expansion districts (ocean coordinates, own dimensions) -->
-    <map src="maps/vice_city.map" dimension="10" />
-    <map src="maps/liberty_city.map" dimension="20" />
-
-    <!-- Expansion radar references -->
-    <script src="server/expansion_radar.lua" type="server" />
 </meta>

@@ -119,6 +119,13 @@ local function renderGTAVRadar(screenW, screenH)
     local px, py, pz = getElementPosition(localPlayer)
     local zoneName = getZoneName(px, py, pz) or "San Andreas"
     local cityName = getZoneName(px, py, pz, true) or "Mzansi"
+
+    -- Free State Government Sanctuary Peninsula (Bayside / Tierra Robada North)
+    if px >= -2650 and px <= -2050 and py >= 2150 and py <= 2600 then
+        cityName = "FREE STATE"
+        zoneName = "GOVERNMENT SANCTUARY"
+    end
+
     dxDrawRectangle(rx - 2, ry - 24, RADAR_W + 4, 22, tocolor(15, 20, 28, 230), false)
     dxDrawRectangle(rx - 2, ry - 24, RADAR_W + 4, 1, tocolor(255, 255, 255, 30), false)
     dxDrawText(string.upper(cityName .. "  •  " .. zoneName),

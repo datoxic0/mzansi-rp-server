@@ -241,29 +241,190 @@ addCommandHandler("engine", function(p) Mzansi.Vehicles.toggleEngine(p) end)
 addCommandHandler("lock", function(p) Mzansi.Vehicles.toggleLock(p) end)
 addCommandHandler("refuel", function(p) Mzansi.Vehicles.refuelVehicle(p) end)
 
-function Mzansi.Vehicles.respawnVehicle(source)
+-- ==============================================================
+-- VEHICLE OWNERSHIP & SPAWNING MANAGEMENT
+-- ==============================================================
+
+function Mzansi.Vehicles.listPlayerVehicles(source)
+    local char = Mzansi.Characters.getCharacter(source)
+    if not char then return end
+
+    local vehicles = Mzansi.Database.getPlayerVehicles(char.id)
+    if not vehicles or #vehicles == 0 then
+        Mzansi.Util.sendNotification(source, "You do not own any vehicles. Visit the dealership to purchase one.", "info")
+        return
+    end
+
+    outputChatBox("🚗 --- YOUR OWNED VEHICLES (" .. #vehicles .. ") ---", source, 255, 215, 0)
+    for i, vData in ipairs(vehicles) do
+        local spawnedVeh = Mzansi.Vehicles._spawned[vData.id]
+        local isSpawned = spawnedVeh and isElement(spawnedVeh)
+        local statusText = isSpawned and "#00FF00[SPAWNED IN WORLD]#FFFFFF" or "#00CCFF[STORED IN GARAGE]#FFFFFF"
+        local vehName = getVehicleNameFromModel(vData.model_id) or "Vehicle"
+        outputChatBox("  #" .. i .. " " .. vehName .. " | Plate: " .. vData.plate .. " | " .. statusText, source, 255, 255, 255, true)
+    end
+    outputChatBox("  Type /spawncar <number or plate> to summon your vehicle!", source, 200, 200, 200)
+end
+
+function Mzansi.Vehicles.summonVehicle(source, query)
     local char = Mzansi.Characters.getCharacter(source)
     if not char then return false end
 
-    local vehicle = getPedOccupiedVehicle(source)
-    if not vehicle then return false, "You must be in a vehicle." end
-
-    local dbData = Mzansi.Vehicles._byElement[vehicle]
-    if not dbData then return false, "Invalid vehicle." end
-
-    if dbData.owner_id ~= char.id then
-        return false, "You don't own this vehicle."
+    local vehicles = Mzansi.Database.getPlayerVehicles(char.id)
+    if not vehicles or #vehicles == 0 then
+        Mzansi.Util.sendNotification(source, "You do not own any vehicles.", "error")
+        return false
     end
 
-    local spawnX, spawnY, spawnZ = getElementPosition(source)
-    setElementPosition(vehicle, spawnX, spawnY + 5, spawnZ)
-    setElementHealth(vehicle, 1000)
-    fixVehicle(vehicle)
-    setElementData(vehicle, "mzansi:fuel", 100)
+    local selectedData = nil
+    if not query or query == "" then
+        selectedData = vehicles[1]
+    else
+        local idx = tonumber(query)
+        if idx and vehicles[idx] then
+            selectedData = vehicles[idx]
+        else
+            for _, v in ipairs(vehicles) do
+                if string.upper(v.plate) == string.upper(query) then
+                    selectedData = v
+                    break
+                end
+            end
+        end
+    end
 
-    Mzansi.Util.sendNotification(source, "Vehicle respawned.", "success")
+    if not selectedData then
+        Mzansi.Util.sendNotification(source, "Vehicle not found. Use /mycars to see your vehicles.", "error")
+        return false
+    end
+
+    local px, py, pz = getElementPosition(source)
+    local rotZ = getPedRotation(source)
+    local rad = math.rad(rotZ)
+    local spawnX = px - math.sin(rad) * 4.0
+    local spawnY = py + math.cos(rad) * 4.0
+    local spawnZ = pz + 0.5
+
+    -- If already spawned, warp it near the player
+    local existingVeh = Mzansi.Vehicles._spawned[selectedData.id]
+    if existingVeh and isElement(existingVeh) then
+        setElementPosition(existingVeh, spawnX, spawnY, spawnZ)
+        setElementRotation(existingVeh, 0, 0, rotZ)
+        fixVehicle(existingVeh)
+        setVehicleLocked(existingVeh, false)
+        setElementData(existingVeh, "mzansi:fuel", math.max(20, getElementData(existingVeh, "mzansi:fuel") or 100))
+        setVehicleEngineState(existingVeh, true)
+        Mzansi.Util.sendNotification(source, "Your " .. getVehicleName(existingVeh) .. " [" .. selectedData.plate .. "] has arrived!", "success")
+        return true
+    end
+
+    -- If stored, spawn from database
+    selectedData.x = spawnX
+    selectedData.y = spawnY
+    selectedData.z = spawnZ
+    selectedData.rotation = rotZ
+    local veh = Mzansi.Vehicles.spawnVehicle(selectedData)
+    if veh then
+        setVehicleLocked(veh, false)
+        setElementData(veh, "mzansi:fuel", selectedData.fuel or 100)
+        setVehicleEngineState(veh, true)
+        Mzansi.Util.sendNotification(source, "Spawned " .. getVehicleName(veh) .. " [" .. selectedData.plate .. "]!", "success")
+        return true
+    end
+
+    Mzansi.Util.sendNotification(source, "Failed to spawn vehicle.", "error")
+    return false
+end
+
+function Mzansi.Vehicles.despawnPlayerVehicle(source)
+    local char = Mzansi.Characters.getCharacter(source)
+    if not char then return false end
+
+    local veh = getPedOccupiedVehicle(source)
+    if not veh then
+        for _, v in pairs(Mzansi.Vehicles._byPlate) do
+            local d = Mzansi.Vehicles._byElement[v]
+            if d and d.owner_id == char.id and isElement(v) then
+                veh = v
+                break
+            end
+        end
+    end
+
+    if not veh or not isElement(veh) then
+        Mzansi.Util.sendNotification(source, "No spawned vehicle found to store.", "error")
+        return false
+    end
+
+    local dbData = Mzansi.Vehicles._byElement[veh]
+    if not dbData or dbData.owner_id ~= char.id then
+        Mzansi.Util.sendNotification(source, "You do not own this vehicle.", "error")
+        return false
+    end
+
+    local x, y, z = getElementPosition(veh)
+    local _, _, rz = getElementRotation(veh)
+    local health = getElementHealth(veh)
+    local fuel = getElementData(veh, "mzansi:fuel") or 100
+
+    Mzansi.Database.saveVehicle(dbData.id, {
+        x = x, y = y, z = z, rotation = rz, health = health, fuel = fuel, locked = 1
+    })
+
+    if isPedInVehicle(source) then
+        removePedFromVehicle(source)
+    end
+    destroyElement(veh)
+    if Mzansi.Vehicles._spawned then Mzansi.Vehicles._spawned[dbData.id] = nil end
+    if Mzansi.Vehicles._byPlate then Mzansi.Vehicles._byPlate[dbData.plate] = nil end
+
+    Mzansi.Util.sendNotification(source, "Vehicle stored safely in garage.", "success")
     return true
 end
+
+function Mzansi.Vehicles.parkVehicle(source)
+    local char = Mzansi.Characters.getCharacter(source)
+    if not char then return false end
+
+    local veh = getPedOccupiedVehicle(source)
+    if not veh then
+        Mzansi.Util.sendNotification(source, "You must be inside your vehicle to park it.", "error")
+        return false
+    end
+
+    local dbData = Mzansi.Vehicles._byElement[veh]
+    if not dbData or dbData.owner_id ~= char.id then
+        Mzansi.Util.sendNotification(source, "You do not own this vehicle.", "error")
+        return false
+    end
+
+    local x, y, z = getElementPosition(veh)
+    local _, _, rz = getElementRotation(veh)
+    local health = getElementHealth(veh)
+    local fuel = getElementData(veh, "mzansi:fuel") or 100
+
+    Mzansi.Database.saveVehicle(dbData.id, {
+        x = x, y = y, z = z, rotation = rz, health = health, fuel = fuel, locked = 1
+    })
+
+    dbData.x = x
+    dbData.y = y
+    dbData.z = z
+    dbData.rotation = rz
+
+    Mzansi.Util.sendNotification(source, "Vehicle parked! This location is now its permanent home.", "success")
+    return true
+end
+
+function Mzansi.Vehicles.respawnVehicle(source)
+    return Mzansi.Vehicles.summonVehicle(source)
+end
+
+addCommandHandler("mycars", function(p) Mzansi.Vehicles.listPlayerVehicles(p) end)
+addCommandHandler("myvehicles", function(p) Mzansi.Vehicles.listPlayerVehicles(p) end)
+addCommandHandler("spawncar", function(p, cmd, arg) Mzansi.Vehicles.summonVehicle(p, arg) end)
+addCommandHandler("despawncar", function(p) Mzansi.Vehicles.despawnPlayerVehicle(p) end)
+addCommandHandler("park", function(p) Mzansi.Vehicles.parkVehicle(p) end)
 
 addEventHandler("mzansi:vehicles:lock", root, function()
     local source = client or source
@@ -283,6 +444,17 @@ end)
 addEventHandler("mzansi:vehicles:refuel", root, function()
     local source = client or source
     Mzansi.Vehicles.refuelVehicle(source)
+end)
+
+addEventHandler("mzansi:characters:loaded", root, function(char)
+    local source = source
+    if isElement(source) then
+        setTimer(function()
+            if isElement(source) then
+                Mzansi.Vehicles.loadPlayerVehicles(source)
+            end
+        end, 1500, 1)
+    end
 end)
 
 addEventHandler("onResourceStart", resourceRoot, function()

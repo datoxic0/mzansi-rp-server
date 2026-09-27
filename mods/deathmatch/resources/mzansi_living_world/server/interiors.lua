@@ -48,7 +48,7 @@ local INTERIOR_HUBS = {
     },
     AMMUNATION_CENTRAL = {
         name = "Ammu-Nation Firearms (Downtown LS)",
-        ext = { x = 1368.50, y = -1279.50, z = 13.5 },
+        ext = { x = 1368.50, y = -1288.50, z = 13.5 },
         int = { x = 286.15,  y = -40.63,   z = 1001.5, rot = 90, id = 1 },
         staff = {
             { model = 179, x = 296.0, y = -38.2, z = 1001.5, rot = 90, role = "gunsmith" }
@@ -56,7 +56,7 @@ local INTERIOR_HUBS = {
     },
     CENTRAL_BANK = {
         name = "Standard Bank — Main Vault Lobby",
-        ext = { x = 1460.00, y = -1025.00, z = 23.5 },
+        ext = { x = 1458.00, y = -1012.00, z = 26.8 },
         int = { x = 389.02,  y = 173.84,   z = 1008.3, rot = 90, id = 3 },
         staff = {
             { model = 150, x = 392.2, y = 173.8, z = 1008.3, rot = 90, role = "bank_teller" }

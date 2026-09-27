@@ -37,18 +37,21 @@ local AIRPORTS = {
 
     -- ==========================================
     -- KING SHAKA — Durban International (SF Easter Bay / KZN)
-    -- Hangars and aprons from native SFSe.ipl
+    -- ==========================================
+    -- KING SHAKA — Durban International (SF Easter Bay / KZN)
+    -- Placed directly outside on the open tarmac apron facing the runway
     -- ==========================================
     KING_SHAKA = {
         name = "King Shaka International Airport",
         province = "kzn",
         bays = {
-            -- Real Easter Bay Airport open hangars and tarmac aprons
-            { x = -1272.08, y = -660.33, z = 14.1, rot = 0,   model = 519, name = "Hangar 1 - Shamal"    },
-            { x = -1334.48, y = -660.33, z = 14.1, rot = 0,   model = 553, name = "Hangar 2 - Nevada"    },
-            { x = -1396.88, y = -660.33, z = 14.1, rot = 0,   model = 593, name = "Hangar 3 - Dodo"      },
-            { x = -1438.41, y = -529.63, z = 14.1, rot = 135, model = 577, name = "Main Hangar - AT-400" },
-            { x = -1217.14, y = -67.17,  z = 14.1, rot = 90,  model = 519, name = "North Hangar - Shamal" },
+            -- Outside on the open runway apron tarmac — fully visible to players
+            { x = -1340.0, y = -260.0, z = 14.1, rot = 135, model = 577, name = "Runway Apron 1 - AT-400"     },
+            { x = -1365.0, y = -235.0, z = 14.1, rot = 135, model = 519, name = "Runway Apron 2 - Shamal"     },
+            { x = -1390.0, y = -210.0, z = 14.1, rot = 135, model = 553, name = "Runway Apron 3 - Nevada"     },
+            { x = -1415.0, y = -185.0, z = 14.1, rot = 135, model = 593, name = "Runway Apron 4 - Dodo"       },
+            { x = -1440.0, y = -160.0, z = 14.1, rot = 135, model = 476, name = "Runway Apron 5 - Rustler"    },
+            { x = -1315.0, y = -240.0, z = 14.1, rot = 135, model = 487, name = "Apron Helipad - Maverick"    },
         },
         taxiOut = { x = -1350.0, y = -450.0, z = 14.1, rot = 0 },
         runway  = { x = -1340.0, y = 400.0,  z = 14.1 },
@@ -82,9 +85,9 @@ local _taxiTimers     = {}
 -- SPAWN ALL AIRPORT AIRCRAFT
 -- ============================================================
 local function spawnAircraft(airport, bayIndex, bay)
-    -- Don't double-spawn
+    -- Don't double-spawn if vehicle still valid and not blown up
     local bayId = airport.name .. "_" .. bayIndex
-    if _parkedAircraft[bayId] and isElement(_parkedAircraft[bayId]) then
+    if _parkedAircraft[bayId] and isElement(_parkedAircraft[bayId]) and getElementHealth(_parkedAircraft[bayId]) > 0 then
         return
     end
 
@@ -99,6 +102,7 @@ local function spawnAircraft(airport, bayIndex, bay)
     setVehicleDoorState(veh, 0, 2) -- Close doors
     setVehicleFuelTankExplodable(veh, false)
     setVehicleEngineState(veh, true)
+    setElementData(veh, "mzansi:fuel", 100)
     setElementData(veh, "mzansi:airport:parked", true)
     setElementData(veh, "mzansi:airport:bayId", bayId)
     setElementData(veh, "mzansi:airport:name", bay.name)
@@ -114,52 +118,33 @@ local function spawnAircraft(airport, bayIndex, bay)
     local c = colors[math.random(1, #colors)]
     setVehicleColor(veh, c[1], c[2], 0, 0)
 
+    -- Handle vehicle destruction/respawn
+    addEventHandler("onVehicleExplode", veh, function()
+        setTimer(function()
+            if isElement(veh) then destroyElement(veh) end
+            _parkedAircraft[bayId] = nil
+            spawnAircraft(airport, bayIndex, bay)
+        end, 45000, 1)
+    end)
+
     _parkedAircraft[bayId] = veh
-    outputDebugString("[Airport] Spawned " .. bay.name .. " at " .. airport.name)
+    outputDebugString("[Airport] Spawned " .. bay.name .. " outside on runway apron at " .. airport.name)
 end
 
 -- ============================================================
--- TAXI CYCLE: Randomly pick a bay, "depart" (warp off map),
--- wait, then re-spawn a new random aircraft.
+-- AIRPORT PATROL & RESPAWN MONITOR (replaces despawning taxi cycle)
+-- Keeps aircraft available for players to fly; respawns missing/destroyed
 -- ============================================================
-local function runTaxiCycle(airport)
-    if not airport.bays or #airport.bays == 0 then return end
-
-    -- Pick a random filled bay
-    local bayIndex = math.random(1, #airport.bays)
-    local bay      = airport.bays[bayIndex]
-    local bayId    = airport.name .. "_" .. bayIndex
-    local veh      = _parkedAircraft[bayId]
-
-    if not veh or not isElement(veh) then return end
-
-    outputDebugString("[Airport] " .. airport.name .. ": " .. bay.name .. " is taxiing out...")
-
-    -- Phase 1: Unlock and move to taxiway
-    setVehicleLocked(veh, false)
-    local taxiOut = airport.taxiOut
-    setElementPosition(veh, taxiOut.x, taxiOut.y, taxiOut.z)
-    setElementRotation(veh, 0, 0, taxiOut.rot)
-
-    -- Phase 2: After 8 seconds, warp to "end of runway" and despawn (departure)
-    setTimer(function()
-        if isElement(veh) then
-            local rwy = airport.runway
-            setElementPosition(veh, rwy.x, rwy.y, rwy.z + 15)
-            setTimer(function()
-                if isElement(veh) then
-                    destroyElement(veh)
-                    _parkedAircraft[bayId] = nil
-                end
-            end, 3500, 1)
+local function checkAirportBays()
+    for _, airport in pairs(AIRPORTS) do
+        for i, bay in ipairs(airport.bays) do
+            local bayId = airport.name .. "_" .. i
+            local veh = _parkedAircraft[bayId]
+            if not veh or not isElement(veh) or getElementHealth(veh) <= 0 then
+                spawnAircraft(airport, i, bay)
+            end
         end
-    end, 8000, 1)
-
-    -- Phase 3: After 30-60 seconds, spawn a new aircraft in that bay
-    local respawnDelay = math.random(30000, 60000)
-    setTimer(function()
-        spawnAircraft(airport, bayIndex, bay)
-    end, respawnDelay, 1)
+    end
 end
 
 -- ============================================================
@@ -174,22 +159,10 @@ function MzansiLiving.Airports.init()
         end
     end
 
-    outputDebugString("[Airport] All airport aircraft spawned. " ..
-        "Taxi cycle starting in 3 minutes...")
+    outputDebugString("[Airport] All airport aircraft spawned outside near runway.")
 
-    -- Start the taxi departure cycle after 3 minutes (allows world to settle)
-    setTimer(function()
-        for _, airport in pairs(AIRPORTS) do
-            -- Each airport gets its own independent cycle
-            local function scheduleCycle()
-                runTaxiCycle(airport)
-                -- Schedule next departure: 4-8 minutes from now
-                setTimer(scheduleCycle, math.random(240000, 480000), 1)
-            end
-            -- Stagger initial departures so they don't all fire at once
-            setTimer(scheduleCycle, math.random(1000, 15000), 1)
-        end
-    end, 180000, 1)
+    -- Monitor bays every 60 seconds to ensure aircraft remain available
+    setTimer(checkAirportBays, 60000, 0)
 end
 
 -- ============================================================
