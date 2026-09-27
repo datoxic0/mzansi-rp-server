@@ -1,0 +1,4 @@
+<zoneDefinitions>
+    <definition col="rockpatch03" flags="7" id="rockpatch03" lodDistance="299" txd="VC_rocky" zone="islands"></definition>
+    <definition col="rockpatch1" flags="7" id="rockpatch1" lodDistance="299" txd="VC_rocky" zone="islands"></definition>
+</zoneDefinitions>

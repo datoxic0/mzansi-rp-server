@@ -1,0 +1,88 @@
+﻿<map>
+    <!-- Vice City Maritime District (Dimension 10) - Ocean Drive, Malibu, Downtown -->
+    <!-- ============ GROUND PLATFORM (Ocean boardwalk base) ============ -->
+    <object id="vc_ground01" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4100" posY="-4175" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground02" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-4175" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground03" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3900" posY="-4175" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground04" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4100" posY="-4075" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground05" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-4075" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground06" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3900" posY="-4075" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground07" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4100" posY="-3975" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground08" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-3975" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground09" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3900" posY="-3975" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_ground10" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-3875" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Ocean Drive beach strip (east edge - waterfront) -->
+    <object id="vc_beach01" model="4847" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3850" posY="-4225" posZ="1.0" rotX="0" rotY="0" rotZ="270" scale="1"></object>
+    <object id="vc_beach02" model="4847" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3850" posY="-4125" posZ="1.0" rotX="0" rotY="0" rotZ="270" scale="1"></object>
+    <object id="vc_beach03" model="4847" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3850" posY="-4025" posZ="1.0" rotX="0" rotY="0" rotZ="270" scale="1"></object>
+    <object id="vc_beach04" model="4847" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3850" posY="-3925" posZ="1.0" rotX="0" rotY="0" rotZ="270" scale="1"></object>
+
+    <!-- Art Deco hotels along Ocean Drive (west of beach) -->
+    <object id="vc_hotel01" model="6356" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3890" posY="-4195" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_hotel02" model="4555" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3890" posY="-4115" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_hotel03" model="4023" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3890" posY="-4035" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_hotel04" model="4004" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3890" posY="-3955" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_hotel05" model="6157" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3890" posY="-3875" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+
+    <!-- Vice City Police Department (north district) -->
+    <object id="vc_pd01" model="3975" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4080" posY="-3925" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_pd02" model="3976" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4060" posY="-3915" posZ="14.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_pd_wall01" model="1412" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4100" posY="-3905" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_pd_wall02" model="1412" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4080" posY="-3905" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_pd_wall03" model="1412" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4060" posY="-3905" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Malibu Club (southwest entertainment) -->
+    <object id="vc_malibu01" model="4594" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4090" posY="-4215" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_malibu02" model="5704" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4070" posY="-4210" posZ="12.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_malibu_sign" model="1315" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4080" posY="-4230" posZ="16.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Downtown Vice City towers (central-west) -->
+    <object id="vc_tower01" model="4048" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4070" posY="-4115" posZ="10.0" rotX="0" rotY="0" rotZ="180" scale="1"></object>
+    <object id="vc_tower02" model="3988" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4070" posY="-4055" posZ="10.0" rotX="0" rotY="0" rotZ="180" scale="1"></object>
+    <object id="vc_tower03" model="4004" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4070" posY="-3995" posZ="10.0" rotX="0" rotY="0" rotZ="180" scale="1"></object>
+    <object id="vc_tower04" model="4023" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3980" posY="-3925" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_tower05" model="4555" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3920" posY="-3925" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Roads: Ocean Drive (north-south along beach) -->
+    <object id="vc_road01" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3870" posY="-4175" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_road02" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3870" posY="-4075" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_road03" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3870" posY="-3975" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_road04" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3870" posY="-3875" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <!-- Cross roads -->
+    <object id="vc_road05" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-4025" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_road06" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-4125" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Street furniture -->
+    <object id="vc_lamp01" model="1226" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3865" posY="-4155" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_lamp02" model="1226" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3865" posY="-4055" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_lamp03" model="1226" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3865" posY="-3955" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_bench01" model="1280" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3860" posY="-4185" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_bench02" model="1280" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3860" posY="-4085" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_bin01" model="1215" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3858" posY="-4125" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- VCIA Airport apron (south of district, matches int'l config) -->
+    <object id="vc_apron01" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4050" posY="-3825" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_apron02" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3950" posY="-3825" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_apron03" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4050" posY="-4025" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_apron04" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3950" posY="-4025" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_terminal01" model="5708" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-3845" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_runway01" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-3795" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_runway02" model="17622" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4000" posY="-3775" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_hangar01" model="10562" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4060" posY="-3805" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Perimeter sea wall / railings -->
+    <object id="vc_wall01" model="1412" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4150" posY="-4175" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_wall02" model="1412" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4150" posY="-4075" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_wall03" model="1412" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4150" posY="-3975" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="vc_wall04" model="1412" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-4150" posY="-3875" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+
+    <!-- Palm props (beach ambiance) -->
+    <object id="vc_palm01" model="686" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3855" posY="-4205" posZ="3.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_palm02" model="686" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3855" posY="-4105" posZ="3.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_palm03" model="686" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3855" posY="-4005" posZ="3.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="vc_palm04" model="686" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3855" posY="-3905" posZ="3.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Return portal platform (north, near harbor return) -->
+    <object id="vc_return_plat" model="18368" interior="0" dimension="10" alpha="255" collisions="true" doublesided="false" breakable="false" posX="-3995" posY="-4075" posZ="8.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+</map>

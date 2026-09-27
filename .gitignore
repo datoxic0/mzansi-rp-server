@@ -1,0 +1,38 @@
+# MTA:SA Server - Git Ignore Configuration
+
+# Runtime Caches and Downloads (Generated automatically by server)
+mods/deathmatch/resource-cache/
+mods/deathmatch/dumps/
+mods/deathmatch/logs/
+mods/deathmatch/backups/
+dumps/
+
+# Logs and Crash Dumps
+*.log
+*.dmp
+*.bak
+*.tmp
+server.log
+scripts.log
+
+# Private Server Keys and Ephemeral SQLite State
+mods/deathmatch/server-id.keys
+mods/deathmatch/internal.db
+mods/deathmatch/registry.db
+
+# Disabled Total Conversion Binary IMG Archives (>60MB each)
+*.img
+
+# Large Temporary Session Dumps
+new-session---*.json
+.system_generated/
+
+# Legacy root resources directory (MTA only loads from mods/deathmatch/resources)
+/resources/
+
+# OS and Editor Artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

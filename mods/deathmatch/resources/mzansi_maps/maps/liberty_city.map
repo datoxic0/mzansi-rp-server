@@ -1,0 +1,92 @@
+﻿<map>
+    <!-- Liberty City Industrial District (Dimension 20) - Docks, Staunton, Shoreside -->
+    <!-- ============ GROUND PLATFORM (Concrete pier base) ============ -->
+    <object id="lc_ground01" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3890" posY="-3890" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground02" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-3890" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground03" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4090" posY="-3890" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground04" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3890" posY="-3790" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground05" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-3790" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground06" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4090" posY="-3790" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground07" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3890" posY="-3690" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground08" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-3690" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground09" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4090" posY="-3690" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground10" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-3990" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground11" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3890" posY="-3990" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_ground12" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4090" posY="-3990" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Port of Durban / Liberty City docks (east waterfront) -->
+    <object id="lc_dock01" model="5184" interior="0" dimension="20" alpha="255" collisions="true" doublesided="true" breakable="false" posX="4150" posY="-3840" posZ="14.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_dock02" model="5184" interior="0" dimension="20" alpha="255" collisions="true" doublesided="true" breakable="false" posX="4150" posY="-3740" posZ="14.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_dock03" model="5176" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4140" posY="-3790" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_crane_base" model="3675" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4160" posY="-3870" posZ="12.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_container01" model="3578" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4130" posY="-3910" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_container02" model="3578" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4130" posY="-3930" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_container03" model="3578" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4130" posY="-3950" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_warehouse01" model="10562" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4110" posY="-3970" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_warehouse02" model="10562" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4010" posY="-3970" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Staunton Island downtown towers (central) -->
+    <object id="lc_tower01" model="4048" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-3830" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_tower02" model="3988" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-3770" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_tower03" model="4023" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-3830" posZ="10.0" rotX="0" rotY="0" rotZ="180" scale="1"></object>
+    <object id="lc_tower04" model="4004" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-3770" posZ="10.0" rotX="0" rotY="0" rotZ="180" scale="1"></object>
+    <object id="lc_tower05" model="4555" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3970" posY="-3720" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_tower06" model="4594" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4020" posY="-3720" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Liberty City Police / LCPD (north sector) -->
+    <object id="lc_lcpd01" model="3975" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3910" posY="-3710" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lcpd02" model="3976" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3930" posY="-3700" posZ="14.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lcpd_wall01" model="1412" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3890" posY="-3690" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lcpd_wall02" model="1412" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3910" posY="-3690" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lcpd_wall03" model="1412" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3930" posY="-3690" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lcpd_cone01" model="1238" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3950" posY="-3705" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lcpd_cone02" model="1238" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3960" posY="-3705" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Shoreside Vale residential row (west sector) -->
+    <object id="lc_house01" model="5813" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3870" posY="-3830" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_house02" model="6157" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3870" posY="-3770" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_house03" model="5704" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3870" posY="-3710" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_house04" model="4555" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3870" posY="-3910" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+
+    <!-- Roads: grid -->
+    <object id="lc_road01" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-3840" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_road02" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-3740" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_road03" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-3940" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_road04" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-3790" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_road05" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-3790" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_road06" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-3890" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_road07" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-3890" posZ="9.5" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+
+    <!-- Callahan Bridge homage (span across south edge) -->
+    <object id="lc_bridge01" model="18450" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-4040" posZ="14.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_bridge02" model="18450" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-4040" posZ="14.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_bridge_leg01" model="3330" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-4040" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_bridge_leg02" model="3330" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-4040" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_bridge_deck" model="3331" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-4040" posZ="16.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Francis International Airport (south, matches int'l config) -->
+    <object id="lc_apron01" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-4140" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_apron02" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-4140" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_apron03" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3940" posY="-4240" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_apron04" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4040" posY="-4240" posZ="8.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_terminal01" model="5708" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-4160" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_runway01" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-4290" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_runway02" model="17622" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3990" posY="-4310" posZ="9.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_hangar01" model="10562" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3930" posY="-4170" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Perimeter barriers -->
+    <object id="lc_wall01" model="1412" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3840" posY="-3890" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_wall02" model="1412" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3840" posY="-3790" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_wall03" model="1412" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3840" posY="-3690" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+    <object id="lc_wall04" model="1412" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3840" posY="-3990" posZ="10.0" rotX="0" rotY="0" rotZ="90" scale="1"></object>
+
+    <!-- Street lamps -->
+    <object id="lc_lamp01" model="1226" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4000" posY="-3850" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lamp02" model="1226" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4000" posY="-3750" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_lamp03" model="1226" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3980" posY="-3950" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_bench01" model="1280" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4005" posY="-3810" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+    <object id="lc_bin01" model="1215" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="4010" posY="-3870" posZ="10.0" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+
+    <!-- Return portal platform (east docks area) -->
+    <object id="lc_return_plat" model="18368" interior="0" dimension="20" alpha="255" collisions="true" doublesided="false" breakable="false" posX="3995" posY="-3790" posZ="8.5" rotX="0" rotY="0" rotZ="0" scale="1"></object>
+</map>

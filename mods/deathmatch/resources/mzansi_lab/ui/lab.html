@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mzansi Lab</title>
+  <link rel="icon" href="http://mta/local/ui/assets/favicon.svg" />
+  <link rel="stylesheet" href="http://mta/local/ui/lab.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="topbar">
+      <img id="brand" src="http://mta/local/ui/assets/EngiGraphLogo.png" alt="Lab" />
+      <div id="title">MZANSI CIRCUIT LAB</div>
+      <div id="statusbar">
+        <span id="netpill">BENCH</span>
+        <span id="challpill">—</span>
+        <span id="scorepill">0 gates</span>
+      </div>
+      <button id="btnValidate" title="Validate on bench">VALIDATE</button>
+      <button id="btnTruth" title="Local truth table">TRUTH</button>
+      <button id="btnSubmit" class="primary" title="Submit to server">SUBMIT</button>
+      <button id="btnClose" title="Close lab">✕</button>
+    </header>
+
+    <main id="layout">
+      <aside id="palette">
+        <h3>CHALLENGES</h3>
+        <ul id="challengeList"></ul>
+        <h3>PALETTE</h3>
+        <div id="gatePalette"></div>
+        <h3>TOOLS</h3>
+        <button id="btnWire" class="tool active" data-tool="wire">Wire</button>
+        <button id="btnMove" class="tool" data-tool="move">Move</button>
+        <button id="btnDelete" class="tool" data-tool="delete">Delete</button>
+        <button id="btnClear" class="tool danger">Clear</button>
+        <button id="btnAutoLayout">Auto layout</button>
+        <div id="briefBox"></div>
+        <h3>REFERENCE</h3>
+        <div class="refrow"><img src="http://mta/local/ui/assets/motor_star_delta.png" alt="star-delta" /></div>
+        <div class="refrow"><img src="http://mta/local/ui/assets/fbd_case_study.png" alt="fbd" /></div>
+        <div class="refrow"><img src="http://mta/local/ui/assets/pneumatic_case_study.png" alt="pneumatic" /></div>
+      </aside>
+
+      <section id="benchWrap">
+        <canvas id="bench" width="1040" height="640"></canvas>
+        <div id="resultBanner" class="hidden"></div>
+      </section>
+
+      <aside id="rightPane">
+        <h3>OUTPUTS</h3>
+        <div id="liveOutputs"></div>
+        <h3>TRUTH TABLE</h3>
+        <div id="truthWrap"><em>Hit TRUTH or VALIDATE</em></div>
+        <h3>LOG</h3>
+        <div id="log"></div>
+        <h3>NUMBER SYSTEMS</h3>
+        <div id="numsys">
+          <input id="numIn" placeholder="value" />
+          <select id="numBase">
+            <option value="dec">DEC</option>
+            <option value="hex">HEX</option>
+            <option value="bin">BIN</option>
+            <option value="oct">OCT</option>
+          </select>
+          <button id="btnNum">Convert</button>
+          <div id="numOut"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="http://mta/local/ui/engines.js"></script>
+  <script src="http://mta/local/ui/lab.js"></script>
+</body>
+</html>

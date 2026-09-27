@@ -1,0 +1,77 @@
+<meta>
+    <info author="Mzansi-ZA Development Team" type="script" name="Mzansi-ZA Core" version="1.0.0" description="Core framework for Mzansi-ZA South African Roleplay Environment" />
+
+    <!-- Server-side: Authoritative logic, database, authentication, factions, economy -->
+    <script src="server/main.lua" type="server" />
+    <script src="server/player.lua" type="server" />
+    <script src="server/database.lua" type="server" />
+    <script src="server/events.lua" type="server" />
+    <script src="server/spawn.lua" type="server" />
+    <script src="server/acl.lua" type="server" />
+    <script src="server/commands.lua" type="server" />
+
+    <!-- Shared: Common utilities, enums, constants -->
+    <script src="shared/utils.lua" type="shared" />
+    <script src="shared/enums.lua" type="shared" />
+    <script src="shared/class.lua" type="shared" />
+
+    <!-- Client-side: Rendering, CEF, asset streaming, UI -->
+    <script src="client/main.lua" type="client" />
+    <script src="client/assets.lua" type="client" />
+    <script src="client/cef.lua" type="client" />
+    <script src="client/streaming.lua" type="client" />
+    <script src="client/hud.lua" type="client" />
+    <script src="client/events.lua" type="client" />
+
+    <!-- CEF Web Interfaces -->
+    <file src="client/cef/banking/index.html" type="client" />
+    <file src="client/cef/banking/style.css" type="client" />
+    <file src="client/cef/banking/app.js" type="client" />
+    <file src="client/cef/mdt/index.html" type="client" />
+    <file src="client/cef/mdt/style.css" type="client" />
+    <file src="client/cef/mdt/app.js" type="client" />
+    <file src="client/cef/shared/mta-bridge.js" type="client" />
+
+    <!-- Asset files (placeholders - actual .dff/.txd/.col go in mzansi_assets) -->
+    <file src="client/assets/placeholder.txt" type="client" />
+
+    <!-- Database schema -->
+    <file src="db/schema.sql" type="server" />
+
+    <!-- Exported functions for other resources -->
+    <export function="getPlayerAccountData" type="server" />
+    <export function="setPlayerAccountData" type="server" />
+    <export function="spawnPlayerAtLocation" type="server" />
+    <export function="givePlayerMoney" type="server" />
+    <export function="takePlayerMoney" type="server" />
+    <export function="getPlayerFaction" type="server" />
+    <export function="setPlayerFaction" type="server" />
+    <export function="triggerClientEventLatent" type="server" />
+    <export function="loadSouthAfricanAssets" type="client" />
+    <export function="unloadSouthAfricanAssets" type="client" />
+    <export function="showCEFInterface" type="client" />
+    <export function="hideCEFInterface" type="client" />
+    <export function="executeBrowserJS" type="client" />
+
+    <!-- Settings -->
+    <settings>
+        <setting name="spawn_x" value="1520" friendlyname="Default Spawn X" group="spawn" />
+        <setting name="spawn_y" value="-1520" friendlyname="Default Spawn Y" group="spawn" />
+        <setting name="spawn_z" value="13.5" friendlyname="Default Spawn Z" group="spawn" />
+        <setting name="spawn_rotation" value="0" friendlyname="Default Spawn Rotation" group="spawn" />
+        <setting name="db_type" value="sqlite" friendlyname="Database Type (sqlite/mysql)" group="database" />
+        <setting name="db_host" value="" friendlyname="MySQL Host" group="database" />
+        <setting name="db_name" value="mzansi_za" friendlyname="MySQL Database Name" group="database" />
+        <setting name="db_user" value="root" friendlyname="MySQL Username" group="database" />
+        <setting name="db_pass" value="" friendlyname="MySQL Password" group="database" />
+        <setting name="db_port" value="3306" friendlyname="MySQL Port" group="database" />
+        <setting name="payday_interval" value="3600000" friendlyname="Payday Interval (ms)" group="economy" />
+        <setting name="starting_cash" value="5000" friendlyname="Starting Cash" group="economy" />
+        <setting name="starting_bank" value="10000" friendlyname="Starting Bank Balance" group="economy" />
+        <setting name="enable_cef" value="true" friendlyname="Enable CEF Interfaces" group="features" />
+        <setting name="enable_voice" value="false" friendlyname="Enable Voice Chat" group="features" />
+        <setting name="streaming_memory_mb" value="1024" friendlyname="Streaming Memory (MB)" group="engine" />
+    </settings>
+
+    <min_mta_version client="1.6.0-9.24109.0" server="1.6.0-9.24109.0" />
+</meta>

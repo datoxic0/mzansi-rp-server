@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mzansi RP - Register</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a1628 0%, #1a2a4a 50%, #0d1f3c 100%);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .container {
+            width: 420px;
+            padding: 40px;
+            background: rgba(10, 22, 40, 0.95);
+            border-radius: 16px;
+            border: 1px solid rgba(200, 170, 50, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo h1 {
+            font-size: 24px;
+            color: #c8aa32;
+            letter-spacing: 2px;
+        }
+        .logo p {
+            font-size: 11px;
+            color: #8899aa;
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 11px;
+            color: #8899aa;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #c8aa32;
+            background: rgba(200, 170, 50, 0.05);
+        }
+        .form-group select option {
+            background: #1a2a4a;
+            color: #fff;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #c8aa32, #a89028);
+            color: #0a1628;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #dab840, #c8aa32);
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: #8899aa;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 10px;
+        }
+        .btn-secondary:hover {
+            color: #c8aa32;
+            border-color: #c8aa32;
+        }
+        .error {
+            color: #ff4444;
+            font-size: 12px;
+            margin-top: 10px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>Create Account</h1>
+            <p>Join Mzansi RP</p>
+        </div>
+        <form id="registerForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="regUsername" placeholder="Choose a username" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label>Email (Optional)</label>
+                <input type="email" id="regEmail" placeholder="your@email.com" autocomplete="off">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" placeholder="Min 6 characters">
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" id="regConfirm" placeholder="Confirm password">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Account</button>
+            <button type="button" class="btn btn-secondary" onclick="showLogin()">Back to Login</button>
+            <div class="error" id="error"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var username = document.getElementById('regUsername').value.trim();
+            var email = document.getElementById('regEmail').value.trim();
+            var password = document.getElementById('regPassword').value;
+            var confirm = document.getElementById('regConfirm').value;
+
+            if (!username || !password) {
+                showError('Please fill in all required fields.');
+                return;
+            }
+            if (password.length < 6) {
+                showError('Password must be at least 6 characters.');
+                return;
+            }
+            if (password !== confirm) {
+                showError('Passwords do not match.');
+                return;
+            }
+            mta.triggerEvent('mzansi:accounts:register', username, password, email);
+        });
+
+        function showLogin() {
+            mta.triggerEvent('mzansi:accounts:showLogin');
+        }
+
+        function showError(msg) {
+            var el = document.getElementById('error');
+            el.textContent = msg;
+            el.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

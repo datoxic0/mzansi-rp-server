@@ -1,0 +1,21 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_market" description="Closed-loop paper markets, indicators, and hedge funds" version="1.0.0" type="script" />
+
+    <script src="shared/indicators.lua" type="shared" />
+
+    <script src="server/price_sim.lua" type="server" />
+    <script src="server/strategy_engine.lua" type="server" />
+    <script src="server/paper_portfolio.lua" type="server" />
+    <script src="server/market_db.lua" type="server" />
+    <script src="server/funds.lua" type="server" />
+
+    <script src="client/market_ui.lua" type="client" />
+
+    <export function="getQuotes" type="server" />
+    <export function="getPortfolio" type="server" />
+    <export function="buyPaper" type="server" />
+    <export function="sellPaper" type="server" />
+    <export function="getFunds" type="server" />
+    <export function="investFund" type="server" />
+    <export function="redeemFund" type="server" />
+</meta>

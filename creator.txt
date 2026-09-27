@@ -1,0 +1,2 @@
+1. Default Creator Sovereign Account (mzansi_core/server/creator_setup.lua)
+Username: Creator | Password: MzansiCreator2026!Sovereign

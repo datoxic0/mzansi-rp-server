@@ -1,0 +1,11 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_vip" description="Mzansi RP Ngamla VIP &amp; Creator Interface" version="1.0.0" type="script" />
+
+    <script src="shared/vip_config.lua" type="shared" />
+    <script src="server/vip_server.lua" type="server" />
+    <script src="client/vip_client.lua" type="client" />
+
+    <export function="isPlayerVIP" type="server" />
+    <export function="isPlayerCreator" type="server" />
+    <export function="setPlayerVIP" type="server" />
+</meta>

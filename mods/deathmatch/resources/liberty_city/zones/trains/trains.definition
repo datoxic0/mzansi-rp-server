@@ -1,0 +1,27 @@
+<zoneDefinitions>
+    <definition col="LODltrax_lo4b" flags="2,7,21" id="LODltrax_lo4b" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="Nnewtrackaaa" flags="2,7,21" id="Nnewtrackaaa" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_2b" flags="2,7,21" id="Nrailtrax_2b" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_bentl" disable_backface_culling="true" dont_receive_shadows="true" draw_last="true" flags="disable_backface_culling,draw_last,dont_receive_shadows" id="Nrailtrax_bentl" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_bentr" flags="2,7,21" id="Nrailtrax_bentr" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_bentrb" flags="2,7,21" id="Nrailtrax_bentrb" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_ske2b" flags="2,7,21" id="Nrailtrax_ske2b" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_skew" flags="2,7,21" id="Nrailtrax_skew" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_skew5" flags="2,7,21" id="Nrailtrax_skew5" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_skewp" flags="2,7,21" id="Nrailtrax_skewp" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_straight" flags="2,7,21" id="Nrailtrax_straight" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtrax_strtshort" flags="2,7,21" id="Nrailtrax_strtshort" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="Nrailtraxstraightss" flags="2,7,21" id="Nrailtraxstraightss" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="newtrackaaa" flags="2,7,21" id="newtrackaaa" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_2b" flags="2,7,21" id="railtrax_2b" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_bentl" flags="2,7,21" id="railtrax_bentl" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_bentr" flags="2,7,21" id="railtrax_bentr" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_bentrb" flags="2,7,21" id="railtrax_bentrb" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_lo4b" flags="2,7,21" id="railtrax_lo4b" lodDistance="160" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_ske2b" flags="2,7,21" id="railtrax_ske2b" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_skew" flags="2,7,21" id="railtrax_skew" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_skew5" flags="2,7,21" id="railtrax_skew5" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_skewp" flags="2,7,21" id="railtrax_skewp" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_straight" disable_backface_culling="true" flags="disable_backface_culling" id="railtrax_straight" lodDistance="700" txd="railway" zone="trains"></definition>
+    <definition col="railtrax_strtshort" flags="2,7,21" id="railtrax_strtshort" lodDistance="700" txd="railway" zone="trains"></definition>
+</zoneDefinitions>

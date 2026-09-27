@@ -1,0 +1,22 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_inventory" description="Inventory System" version="1.0.0" type="script" />
+    <file src="ui/inventory.html" />
+    <html src="ui/inventory.html" />
+
+    <script src="shared/enums.lua" type="server" />    <script src="shared/config.lua" type="server" />
+
+    <script src="shared/util.lua" type="server" />
+    <script src="server/database.lua" type="server" />
+    <script src="server/characters.lua" type="server" />
+
+    <script src="shared/inventory_config.lua" type="shared" />
+    <script src="server/inventory.lua" type="server" />
+    <script src="shared/enums.lua" type="client" />
+    <script src="shared/util.lua" type="client" />
+    <script src="client/inventory_client.lua" type="client" />
+
+    <export function="hasItem" />
+    <export function="addItem" />
+    <export function="removeItem" />
+    <export function="getItemCount" />
+</meta>

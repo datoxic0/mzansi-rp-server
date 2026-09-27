@@ -1,0 +1,19 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_phone" description="Mzansi Mobile Smartphone System" version="2.0.0" type="script" />
+
+    <script src="shared/enums.lua" type="server" />
+    <script src="shared/config.lua" type="server" />
+    <script src="shared/util.lua" type="server" />
+    <script src="shared/phone_config.lua" type="server" />
+    <script src="server/phone.lua" type="server" />
+
+    <script src="shared/enums.lua" type="client" />
+    <script src="shared/config.lua" type="client" />
+    <script src="shared/util.lua" type="client" />
+    <script src="shared/phone_config.lua" type="client" />
+    <script src="client/phone_client.lua" type="client" />
+
+    <export function="getNumber" type="server" />
+    <export function="phoneCall" type="server" />
+    <export function="sendSMS" type="server" />
+</meta>

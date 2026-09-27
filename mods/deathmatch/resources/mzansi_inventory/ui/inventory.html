@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mzansi Inventory</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #0a0a1a;
+            color: #fff;
+            width: 500px;
+            height: 400px;
+            overflow: hidden;
+        }
+        .inventory {
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 15, 25, 0.95);
+            border: 1px solid rgba(200, 170, 50, 0.3);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        .header {
+            font-size: 16px;
+            font-weight: 600;
+            color: #c8aa32;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(200, 170, 50, 0.3);
+        }
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .item-slot {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .item-slot:hover {
+            border-color: #c8aa32;
+            background: rgba(200, 170, 50, 0.1);
+        }
+        .item-slot .icon {
+            font-size: 24px;
+            margin-bottom: 4px;
+        }
+        .item-slot .name {
+            font-size: 9px;
+            text-align: center;
+            color: #aaa;
+        }
+        .item-slot .qty {
+            position: absolute;
+            bottom: 4px;
+            right: 6px;
+            font-size: 10px;
+            color: #c8aa32;
+            font-weight: 600;
+        }
+        .item-actions {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(20, 30, 50, 0.98);
+            border: 1px solid rgba(200, 170, 50, 0.5);
+            border-radius: 8px;
+            padding: 8px;
+            z-index: 10;
+            min-width: 120px;
+        }
+        .item-slot:hover .item-actions { display: block; }
+        .item-action {
+            padding: 6px 10px;
+            font-size: 11px;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #fff;
+        }
+        .item-action:hover {
+            background: rgba(200, 170, 50, 0.3);
+        }
+        .stats {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 11px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="inventory">
+        <div class="header">Inventory</div>
+        <div class="items-grid" id="itemsGrid"></div>
+        <div class="stats">
+            <span id="itemCount">0</span> / 20 items
+        </div>
+    </div>
+
+    <script>
+        var items = [];
+
+        function renderItems() {
+            var grid = document.getElementById('itemsGrid');
+            grid.innerHTML = '';
+            items.forEach(function(item) {
+                var def = getItemDef(item.item_name);
+                var slot = document.createElement('div');
+                slot.className = 'item-slot';
+                slot.innerHTML = '<div class="icon">' + (def ? def.icon : '?') + '</div>' +
+                    '<div class="name">' + (def ? def.name : item.item_name) + '</div>' +
+                    '<div class="qty">x' + item.quantity + '</div>' +
+                    '<div class="item-actions">' +
+                    (def && def.usable ? '<div class="item-action" onclick="useItem(\'' + item.item_name + '\')">Use</div>' : '') +
+                    '<div class="item-action" onclick="dropItem(\'' + item.item_name + '\')">Drop</div>' +
+                    '</div>';
+                grid.appendChild(slot);
+            });
+            document.getElementById('itemCount').textContent = items.length;
+        }
+
+        function getItemDef(name) {
+            var defs = {
+                'bread': { name: 'Bread', icon: '🍞', usable: true },
+                'water': { name: 'Water', icon: '💧', usable: true },
+                'cola': { name: 'Cola', icon: '🥤', usable: true },
+                'bandage': { name: 'Bandage', icon: '🩹', usable: true },
+                'medkit': { name: 'Medkit', icon: '🏥', usable: true },
+                'phone': { name: 'Phone', icon: '📱', usable: true },
+                'lockpick': { name: 'Lockpick', icon: '🔧', usable: true },
+                'repair_kit': { name: 'Repair Kit', icon: '🔨', usable: true },
+                'fishing_rod': { name: 'Fishing Rod', icon: '🎣', usable: true },
+                'fish': { name: 'Fish', icon: '🐟', usable: true },
+                'gold_ore': { name: 'Gold Ore', icon: '🥇', usable: false },
+                'iron_ore': { name: 'Iron Ore', icon: '⛏️', usable: false },
+                'diamond': { name: 'Diamond', icon: '💎', usable: false },
+                'weapon_license': { name: 'Weapon License', icon: '📄', usable: false },
+                'driver_license': { name: 'Driver License', icon: '📄', usable: false },
+                'id_card': { name: 'ID Card', icon: '🪪', usable: false },
+                'radio': { name: 'Radio', icon: '📻', usable: true },
+                'spray': { name: 'Spray Can', icon: '🎨', usable: true },
+            };
+            return defs[name] || { name: name, icon: '📦', usable: false };
+        }
+
+        function useItem(name) {
+            mta.triggerEvent('mzansi:inventory:use', name);
+        }
+
+        function dropItem(name) {
+            mta.triggerEvent('mzansi:inventory:drop', name, 1);
+        }
+
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'inventory:loaded') {
+                items = event.data.items || [];
+                renderItems();
+            }
+        });
+    </script>
+</body>
+</html>

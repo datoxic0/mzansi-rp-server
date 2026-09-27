@@ -1,0 +1,18 @@
+<map>
+    <!-- SAPS Station Headquarters Security Compound -->
+    <!-- Security Perimeter Barriers -->
+    <object id="saps_barrier1" model="1412" posX="1535.0" posY="-1680.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+    <object id="saps_barrier2" model="1412" posX="1535.0" posY="-1670.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+
+    <!-- Station Parking Cones & Checkpoint Indicators -->
+    <object id="saps_cone1" model="1238" posX="1538.0" posY="-1685.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="saps_cone2" model="1238" posX="1542.0" posY="-1685.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="saps_cone3" model="1238" posX="1546.0" posY="-1685.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+
+    <!-- Security Checkpoint Floodlights -->
+    <object id="saps_light1" model="1226" posX="1533.0" posY="-1690.0" posZ="13.5" rotX="0" rotY="0" rotZ="45" />
+    <object id="saps_light2" model="1226" posX="1555.0" posY="-1690.0" posZ="13.5" rotX="0" rotY="0" rotZ="315" />
+
+    <!-- Public Reception Benches -->
+    <object id="saps_bench1" model="1280" posX="1550.0" posY="-1672.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+</map>

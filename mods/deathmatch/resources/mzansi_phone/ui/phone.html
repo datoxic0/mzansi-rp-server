@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mzansi Phone</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            width: 360px;
+            height: 640px;
+            overflow: hidden;
+        }
+        .phone-frame {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 100%);
+            border: 2px solid #c8aa32;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .status-bar {
+            height: 30px;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            font-size: 11px;
+            color: #aaa;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(200, 170, 50, 0.2);
+            border: 1px solid rgba(200, 170, 50, 0.3);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .app-icon:hover {
+            background: rgba(200, 170, 50, 0.4);
+            transform: scale(1.05);
+        }
+        .app-icon .icon {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        .app-icon .label {
+            font-size: 10px;
+            color: #ccc;
+        }
+        .screen {
+            display: none;
+            height: calc(100% - 30px);
+            padding: 15px;
+            overflow-y: auto;
+        }
+        .screen.active { display: block; }
+        .header {
+            font-size: 18px;
+            font-weight: 600;
+            color: #c8aa32;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(200,170,50,0.3);
+        }
+        .back-btn {
+            color: #c8aa32;
+            cursor: pointer;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        input:focus, textarea:focus { outline: none; border-color: #c8aa32; }
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 8px;
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #c8aa32, #a89028);
+            color: #0a1628;
+        }
+        .btn-outline {
+            background: transparent;
+            color: #c8aa32;
+            border: 1px solid #c8aa32;
+        }
+        .contact-item {
+            padding: 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-item .name { font-weight: 600; }
+        .contact-item .number { font-size: 11px; color: #888; }
+        .sms-item {
+            padding: 12px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        .sms-item .sender { font-size: 11px; color: #c8aa32; margin-bottom: 4px; }
+        .sms-item .msg { font-size: 13px; }
+        .sms-item .time { font-size: 10px; color: #666; margin-top: 4px; }
+    </style>
+</head>
+<body>
+    <div class="phone-frame">
+        <div class="status-bar">
+            <span>MZANSI</span>
+            <span id="clock"></span>
+        </div>
+
+        <div class="screen active" id="homeScreen">
+            <div class="app-grid">
+                <div class="app-icon" onclick="showScreen('callScreen')">
+                    <div class="icon">📞</div>
+                    <div class="label">Call</div>
+                </div>
+                <div class="app-icon" onclick="showScreen('smsScreen')">
+                    <div class="icon">💬</div>
+                    <div class="label">SMS</div>
+                </div>
+                <div class="app-icon" onclick="showScreen('contactsScreen')">
+                    <div class="icon">👥</div>
+                    <div class="label">Contacts</div>
+                </div>
+                <div class="app-icon" onclick="showScreen('bankScreen')">
+                    <div class="icon">🏦</div>
+                    <div class="label">Bank</div>
+                </div>
+                <div class="app-icon" onclick="showScreen('taxiScreen')">
+                    <div class="icon">🚕</div>
+                    <div class="label">Taxi</div>
+                </div>
+                <div class="app-icon" onclick="showScreen('newsScreen')">
+                    <div class="icon">📰</div>
+                    <div class="label">News</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="screen" id="callScreen">
+            <div class="back-btn" onclick="showScreen('homeScreen')">← Back</div>
+            <div class="header">Make a Call</div>
+            <input type="text" id="callNumber" placeholder="Enter phone number">
+            <button class="btn btn-gold" onclick="makeCall()">Call</button>
+            <div id="callStatus" style="text-align:center;margin-top:10px;color:#888;font-size:12px;"></div>
+        </div>
+
+        <div class="screen" id="smsScreen">
+            <div class="back-btn" onclick="showScreen('homeScreen')">← Back</div>
+            <div class="header">Send SMS</div>
+            <input type="text" id="smsNumber" placeholder="Recipient number">
+            <textarea id="smsMessage" rows="3" placeholder="Type your message..."></textarea>
+            <button class="btn btn-gold" onclick="sendSMS()">Send SMS</button>
+            <div class="header" style="margin-top:20px;">Messages</div>
+            <div id="messagesList"></div>
+        </div>
+
+        <div class="screen" id="contactsScreen">
+            <div class="back-btn" onclick="showScreen('homeScreen')">← Back</div>
+            <div class="header">Contacts</div>
+            <input type="text" id="contactName" placeholder="Contact name">
+            <input type="text" id="contactNumber" placeholder="Phone number">
+            <button class="btn btn-gold" onclick="addContact()">Add Contact</button>
+            <div id="contactsList"></div>
+        </div>
+
+        <div class="screen" id="bankScreen">
+            <div class="back-btn" onclick="showScreen('homeScreen')">← Back</div>
+            <div class="header">Mzansi Bank</div>
+            <p style="color:#888;font-size:12px;margin-bottom:15px;">Mobile Banking</p>
+            <button class="btn btn-outline">Check Balance</button>
+            <button class="btn btn-outline">Transfer Funds</button>
+            <button class="btn btn-outline">Pay Bill</button>
+        </div>
+
+        <div class="screen" id="taxiScreen">
+            <div class="back-btn" onclick="showScreen('homeScreen')">← Back</div>
+            <div class="header">Request Taxi</div>
+            <p style="color:#888;font-size:12px;margin-bottom:15px;">A taxi will come to your location</p>
+            <button class="btn btn-gold">Request Taxi (R250)</button>
+        </div>
+
+        <div class="screen" id="newsScreen">
+            <div class="back-btn" onclick="showScreen('homeScreen')">← Back</div>
+            <div class="header">Cape Town News</div>
+            <p style="color:#888;font-size:12px;">Latest news from around Mzansi</p>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function makeCall() {
+            var number = document.getElementById('callNumber').value.trim();
+            if (!number) return;
+            mta.triggerEvent('mzansi:phone:call', number);
+            document.getElementById('callStatus').textContent = 'Calling...';
+        }
+
+        function sendSMS() {
+            var number = document.getElementById('smsNumber').value.trim();
+            var message = document.getElementById('smsMessage').value.trim();
+            if (!number || !message) return;
+            mta.triggerEvent('mzansi:phone:sms', number, message);
+            document.getElementById('smsMessage').value = '';
+        }
+
+        function addContact() {
+            var name = document.getElementById('contactName').value.trim();
+            var number = document.getElementById('contactNumber').value.trim();
+            if (!name || !number) return;
+            mta.triggerEvent('mzansi:phone:addContact', name, number);
+            document.getElementById('contactName').value = '';
+            document.getElementById('contactNumber').value = '';
+        }
+
+        function updateClock() {
+            var now = new Date();
+            document.getElementById('clock').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        mta.triggerEvent('mzansi:phone:getContacts');
+        mta.triggerEvent('mzansi:phone:getMessages');
+
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'contactsLoaded') {
+                var list = document.getElementById('contactsList');
+                list.innerHTML = '';
+                event.data.contacts.forEach(function(c) {
+                    list.innerHTML += '<div class="contact-item"><div><div class="name">' + c.contact_name + '</div><div class="number">' + c.contact_number + '</div></div></div>';
+                });
+            }
+            if (event.data.type === 'messagesLoaded') {
+                var list = document.getElementById('messagesList');
+                list.innerHTML = '';
+                event.data.messages.forEach(function(m) {
+                    list.innerHTML += '<div class="sms-item"><div class="sender">From: ' + m.sender_id + '</div><div class="msg">' + m.message + '</div></div>';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<meta>
+    <info author="Mzansi" name="custom_coronas" description="Minimal corona stub for vc_lightgen compatibility" version="1.0.0" type="script" />
+    <script src="server/main.lua" type="server" />
+    <script src="client/main.lua" type="client" />
+    <export function="createCorona" type="client" />
+    <export function="destroyCorona" type="client" />
+</meta>

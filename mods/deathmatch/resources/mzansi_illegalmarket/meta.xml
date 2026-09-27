@@ -1,0 +1,13 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_illegalmarket" description="Illegal Market System" version="1.0.0" type="script" />
+        <script src="shared/enums.lua" type="server" />    <script src="shared/config.lua" type="server" />
+
+<script src="shared/util.lua" type="server" />
+    <script src="server/database.lua" type="server" />
+    <script src="server/characters.lua" type="server" />
+
+    <script src="shared/market_config.lua" type="shared" />
+    <script src="server/market.lua" type="server" />
+    <script src="shared/util.lua" type="client" />
+    <script src="client/market_client.lua" type="client" />
+</meta>

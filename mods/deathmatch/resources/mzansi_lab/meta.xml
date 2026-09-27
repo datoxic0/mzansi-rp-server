@@ -1,0 +1,25 @@
+<meta>
+    <info author="Siyabonga Blessing Phakathi / Mzansi Development Team" name="mzansi_lab" description="In-game circuit &amp; schematic lab — ASCADS engines (VEO-SA-NC-1.0, licensor project)" version="1.0.0" type="script" />
+
+    <script src="shared/lab_config.lua" type="shared" />
+    <script src="server/lab_engine.lua" type="server" />
+    <script src="server/lab_server.lua" type="server" />
+    <script src="client/lab_client.lua" type="client" />
+
+    <file src="ui/lab.html" />
+    <file src="ui/lab.css" />
+    <file src="ui/lab.js" />
+    <file src="ui/engines.js" />
+    <file src="ui/assets/logo.png" />
+    <file src="ui/assets/EngiGraphLogo.png" />
+    <file src="ui/assets/favicon.svg" />
+    <file src="ui/assets/fbd_case_study.png" />
+    <file src="ui/assets/pneumatic_case_study.png" />
+    <file src="ui/assets/motor_star_delta.png" />
+    <html src="ui/lab.html" />
+
+    <export function="listChallenges" type="server" />
+    <export function="submitCircuit" type="server" />
+    <export function="validateCircuit" type="server" />
+    <export function="getProgress" type="server" />
+</meta>

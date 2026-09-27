@@ -1,0 +1,29 @@
+<map>
+    <!-- Commerce Taxi Rank & Market Stalls Infrastructure -->
+    <!-- Market Stalls and Fruit Stands -->
+    <object id="stall1" model="3578" posX="1780.0" posY="-1695.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+    <object id="stall2" model="3578" posX="1780.0" posY="-1690.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+    <object id="stall3" model="3578" posX="1780.0" posY="-1685.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+    <object id="stall4" model="3578" posX="1780.0" posY="-1680.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+
+    <!-- Spaza Shop Corrugated Steel Container -->
+    <object id="spaza_shack1" model="3877" posX="1775.0" posY="-1710.0" posZ="13.5" rotX="0" rotY="0" rotZ="180" />
+    <object id="spaza_cooler" model="3574" posX="1777.5" posY="-1708.0" posZ="13.5" rotX="0" rotY="0" rotZ="270" />
+
+    <!-- Taxi Queue Barrier Lanes -->
+    <object id="lane_barrier1" model="1412" posX="1788.0" posY="-1695.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="lane_barrier2" model="1412" posX="1788.0" posY="-1685.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="lane_barrier3" model="1412" posX="1788.0" posY="-1675.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+
+    <!-- Taxi Rank Queuing Line Markers -->
+    <object id="cone1" model="1238" posX="1795.0" posY="-1698.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="cone2" model="1238" posX="1795.0" posY="-1690.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="cone3" model="1238" posX="1795.0" posY="-1682.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+
+    <!-- Street Furniture & Passenger Waiting Benches -->
+    <object id="bench1" model="1280" posX="1778.0" posY="-1700.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+    <object id="bench2" model="1280" posX="1778.0" posY="-1692.0" posZ="13.5" rotX="0" rotY="0" rotZ="90" />
+    <object id="bin1" model="1215" posX="1779.0" posY="-1703.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="lamp1" model="1226" posX="1792.0" posY="-1705.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+    <object id="lamp2" model="1226" posX="1792.0" posY="-1675.0" posZ="13.5" rotX="0" rotY="0" rotZ="0" />
+</map>

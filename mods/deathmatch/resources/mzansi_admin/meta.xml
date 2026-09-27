@@ -1,0 +1,10 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_admin" description="Mzansi RP Admin Panel System" version="1.0.0" type="script" />
+
+    <script src="server/admin.lua" type="server" />
+
+    <script src="client/admin_panel.lua" type="client" />
+
+    <export function="isAdmin" type="server" />
+    <export function="getAdminLevel" type="server" />
+</meta>

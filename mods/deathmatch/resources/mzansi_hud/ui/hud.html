@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mzansi HUD</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: transparent; font-family: 'Segoe UI', sans-serif; }
+    </style>
+</head>
+<body>
+    <script>
+        window.addEventListener('message', function(event) {
+            if (event.data.type === 'hud:update') {
+                document.getElementById('health').style.width = event.data.health + '%';
+                document.getElementById('armor').style.width = event.data.armor + '%';
+                document.getElementById('fuel').style.width = event.data.fuel + '%';
+            }
+        });
+    </script>
+</body>
+</html>

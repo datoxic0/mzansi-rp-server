@@ -1,0 +1,30 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_radio" description="South African Radio System - Real Stations, CIT Radio, Custom UI" version="1.0.0" type="script" />
+
+    <script src="shared/config.lua" type="shared" />
+    <script src="shared/stations.lua" type="shared" />
+    <script src="shared/util.lua" type="shared" />
+
+    <script src="server/radio.lua" type="server" />
+    <script src="server/cit_radio.lua" type="server" />
+    <script src="server/vehicle_radio.lua" type="server" />
+
+    <script src="client/radio_client.lua" type="client" />
+    <script src="client/radio_ui.lua" type="client" />
+    <script src="client/phone_integration.lua" type="client" />
+
+    <file src="ui/radio.html" type="client" />
+    <html src="ui/radio.html" />
+    <file src="ui/cit_radio.html" type="client" />
+    <html src="ui/cit_radio.html" />
+    <file src="ui/styles.css" type="client" />
+    <file src="ui/app.js" type="client" />
+
+    <export function="getStationList" type="server" />
+    <export function="getCurrentStation" type="server" />
+    <export function="setRadioStation" type="server" />
+    <export function="toggleRadio" type="server" />
+    <export function="getCitRadioStream" type="server" />
+    <export function="openRadioUI" type="client" />
+    <export function="closeRadioUI" type="client" />
+</meta>

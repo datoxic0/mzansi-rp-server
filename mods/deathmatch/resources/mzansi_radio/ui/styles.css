@@ -1,0 +1,544 @@
+/* ============================================================
+   MZANSI RADIO - UNIFIED BROADCAST & INTERNET STYLING
+   Glassmorphism UI, Responsive Grid, Smooth Animations
+   ============================================================ */
+
+:root {
+    --bg-base: rgba(15, 23, 42, 0.95);
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --bg-card-hover: rgba(51, 65, 85, 0.85);
+    --accent-gold: #FFD700;
+    --accent-blue: #0096FF;
+    --accent-green: #00E676;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --border-color: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: transparent;
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+#app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.96) 0%, rgba(30, 41, 59, 0.94) 100%);
+    backdrop-filter: blur(16px);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+/* ---------- Top Bar ---------- */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(10, 15, 30, 0.6);
+    border-bottom: 1px solid var(--border-color);
+    gap: 16px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    font-size: 28px;
+}
+
+.brand h1 {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+}
+
+.brand .subtitle {
+    font-size: 11px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Nav Tabs */
+.nav-tabs {
+    display: flex;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.nav-tab {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-tab:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-tab.active {
+    background: var(--accent-blue);
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 150, 255, 0.35);
+}
+
+/* Now Playing Mini */
+.now-playing {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 6px 12px;
+    border-radius: 6px;
+    min-width: 170px;
+}
+
+.np-badge {
+    background: #475569;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+}
+
+.np-badge.live {
+    background: var(--accent-green);
+    color: #0F172A;
+    box-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+}
+
+.np-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.np-station {
+    font-size: 12px;
+    font-weight: 600;
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.np-sub {
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.btn-close {
+    background: rgba(255, 255, 255, 0.06);
+    border: none;
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-close:hover {
+    background: rgba(239, 68, 68, 0.8);
+    color: white;
+}
+
+/* ---------- Content Areas ---------- */
+.tab-content {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.tab-content.active {
+    display: flex;
+}
+
+/* CIT Banner */
+.cit-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(90deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.03) 100%);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    padding: 10px 14px;
+}
+
+.cit-star {
+    font-size: 24px;
+}
+
+.cit-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cit-text strong {
+    color: var(--accent-gold);
+    font-size: 13px;
+}
+
+.cit-text span {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#searchBox {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#searchBox:focus {
+    border-color: var(--accent-blue);
+}
+
+.category-pills {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+.pill {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.pill:hover {
+    color: #FFFFFF;
+    background: var(--bg-card-hover);
+}
+
+.pill.active {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: #FFFFFF;
+}
+
+/* Station Grid */
+.station-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    overflow-y: auto;
+}
+
+.station-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.station-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.station-card.playing {
+    border-color: var(--accent-green);
+    box-shadow: 0 0 12px rgba(0, 230, 118, 0.25);
+    background: rgba(0, 230, 118, 0.08);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.station-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.station-freq {
+    font-size: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.station-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.3;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: #64748B;
+}
+
+/* ---------- Internet Tab Specifics ---------- */
+.custom-stream-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.custom-stream-card h3 {
+    font-size: 14px;
+    color: var(--accent-blue);
+}
+
+.custom-stream-card p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.custom-input-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.custom-input-row input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--border-color);
+    color: #FFFFFF;
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    outline: none;
+}
+
+.custom-input-row input:focus {
+    border-color: var(--accent-blue);
+}
+
+.section-title h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent-gold);
+}
+
+.internet-presets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    border: none;
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    color: #FFFFFF;
+}
+
+.btn-primary:hover {
+    background: #007BD4;
+}
+
+.btn-gold {
+    background: var(--accent-gold);
+    color: #0F172A;
+    font-weight: 700;
+}
+
+.btn-gold:hover {
+    background: #E6C200;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.btn-stop {
+    background: rgba(239, 68, 68, 0.2);
+    color: #EF4444;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.btn-stop:hover {
+    background: #EF4444;
+    color: #FFFFFF;
+}
+
+/* ---------- Soundwave Visualizer Bars ---------- */
+.sound-bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 18px;
+}
+
+.sound-bars span {
+    width: 3px;
+    height: 4px;
+    background: var(--text-secondary);
+    border-radius: 2px;
+    transition: height 0.2s ease;
+}
+
+.sound-bars.active span {
+    background: var(--accent-green);
+    animation: bounce 0.8s infinite alternate ease-in-out;
+}
+
+.sound-bars.active span:nth-child(2) { animation-delay: 0.2s; }
+.sound-bars.active span:nth-child(3) { animation-delay: 0.4s; }
+.sound-bars.active span:nth-child(4) { animation-delay: 0.1s; }
+
+@keyframes bounce {
+    0% { height: 4px; }
+    100% { height: 18px; }
+}
+
+/* ---------- Bottom Player Bar ---------- */
+.player-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: rgba(10, 15, 30, 0.8);
+    border-top: 1px solid var(--border-color);
+    gap: 16px;
+}
+
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.player-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-station {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.player-freq {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.volume-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#volumeSlider {
+    width: 100px;
+    accent-color: var(--accent-blue);
+    cursor: pointer;
+}
+
+#volumeVal {
+    font-size: 11px;
+    color: var(--text-secondary);
+    width: 32px;
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid var(--accent-blue);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.toast.show {
+    opacity: 1;
+}

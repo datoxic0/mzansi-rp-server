@@ -1,0 +1,274 @@
+:root {
+  --bg: #0a1628;
+  --panel: #101c30;
+  --panel2: #0d1a2c;
+  --line: rgba(200, 170, 50, 0.28);
+  --gold: #c8aa32;
+  --text: #d7e0ea;
+  --muted: #8999aa;
+  --ok: #00cc66;
+  --err: #ff5555;
+  --wire: #4ea1ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+#app { display: flex; flex-direction: column; height: 100vh; }
+
+#topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(180deg, #132440, #0d1a2c);
+  border-bottom: 1px solid var(--line);
+}
+
+#brand { height: 28px; width: auto; object-fit: contain; filter: drop-shadow(0 0 4px rgba(200,170,50,.4)); }
+
+#title {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+#statusbar { display: flex; gap: 8px; flex: 1; }
+
+#netpill, #challpill, #scorepill {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  background: #16253d;
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+#topbar button {
+  background: #1a2d48;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+}
+#topbar button.primary { background: var(--gold); color: #101820; font-weight: 700; }
+#topbar button:hover { filter: brightness(1.15); }
+#btnClose { background: #4a1520; border-color: #803040; }
+
+#layout {
+  display: grid;
+  grid-template-columns: 240px 1fr 300px;
+  flex: 1;
+  min-height: 0;
+}
+
+aside {
+  background: var(--panel2);
+  border-right: 1px solid var(--line);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#rightPane { border-right: none; border-left: 1px solid var(--line); }
+
+aside h3 {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  margin: 12px 0 6px;
+}
+aside h3:first-child { margin-top: 0; }
+
+#challengeList { list-style: none; }
+#challengeList li {
+  padding: 8px;
+  margin-bottom: 6px;
+  background: #132134;
+  border: 1px solid #1e3050;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+#challengeList li:hover { border-color: var(--gold); }
+#challengeList li.active { border-color: var(--gold); background: #1a2a44; }
+#challengeList li.done { border-left: 3px solid var(--ok); }
+#challengeList li .sub { display: block; color: var(--muted); font-size: 10px; margin-top: 3px; }
+
+#gatePalette { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.gchip {
+  padding: 6px 8px;
+  background: #16253d;
+  border: 1px solid #243b5e;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  text-align: center;
+}
+.gchip:hover, .gchip.sel { border-color: var(--gold); color: var(--gold); }
+
+.tool {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 7px;
+  background: #16253d;
+  border: 1px solid #243b5e;
+  color: var(--text);
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.tool.active { border-color: var(--gold); color: var(--gold); background: #1c2f4c; }
+.tool.danger { border-color: #663040; color: #ff8080; }
+
+#briefBox {
+  margin-top: 10px;
+  padding: 8px;
+  background: #0f1c30;
+  border: 1px dashed var(--line);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.refrow { margin-bottom: 6px; }
+.refrow img {
+  width: 100%;
+  border: 1px solid #243b5e;
+  border-radius: 3px;
+  background: #fff;
+  max-height: 90px;
+  object-fit: contain;
+}
+
+#benchWrap {
+  position: relative;
+  background:
+    linear-gradient(rgba(78, 161, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 161, 255, 0.04) 1px, transparent 1px),
+    #0b1526;
+  background-size: 32px 32px, 32px 32px, auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#bench {
+  background: transparent;
+  cursor: crosshair;
+  box-shadow: 0 0 0 1px var(--line), 0 10px 40px rgba(0,0,0,.45);
+}
+
+#resultBanner {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  max-width: 80%;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  background: rgba(10, 20, 35, 0.95);
+  border: 1px solid var(--line);
+  z-index: 5;
+}
+#resultBanner.ok { border-color: var(--ok); color: var(--ok); }
+#resultBanner.fail { border-color: var(--err); color: var(--err); }
+#resultBanner.hidden { display: none; }
+
+#liveOutputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+}
+.oline {
+  display: flex;
+  justify-content: space-between;
+  background: #132134;
+  border: 1px solid #1e3050;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+.oline .v1 { color: var(--ok); }
+.oline .v0 { color: var(--muted); }
+.oline .vx { color: var(--err); }
+
+#truthWrap { max-height: 200px; overflow: auto; font-size: 11px; }
+#truthWrap table { border-collapse: collapse; width: 100%; }
+#truthWrap th, #truthWrap td {
+  border: 1px solid #243b5e;
+  padding: 3px 6px;
+  text-align: center;
+  font-family: Consolas, monospace;
+}
+#truthWrap th { background: #16253d; color: var(--gold); }
+#truthWrap em { color: var(--muted); font-size: 11px; }
+
+#log {
+  height: 110px;
+  overflow-y: auto;
+  font-family: Consolas, monospace;
+  font-size: 10px;
+  background: #0a121f;
+  border: 1px solid #1e3050;
+  padding: 6px;
+  border-radius: 3px;
+}
+#log .ok { color: var(--ok); }
+#log .fail { color: var(--err); }
+
+#numsys { display: flex; flex-wrap: wrap; gap: 6px; }
+#numIn {
+  flex: 1;
+  min-width: 80px;
+  background: #0a121f;
+  border: 1px solid #243b5e;
+  color: var(--text);
+  padding: 6px;
+  border-radius: 3px;
+}
+#numBase {
+  background: #16253d;
+  border: 1px solid #243b5e;
+  color: var(--text);
+  border-radius: 3px;
+}
+#btnNum {
+  background: var(--gold);
+  border: none;
+  color: #101820;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#numOut {
+  width: 100%;
+  margin-top: 4px;
+  font-family: Consolas, monospace;
+  font-size: 11px;
+  color: var(--gold);
+  background: #0a121f;
+  border: 1px dashed var(--line);
+  padding: 6px;
+  border-radius: 3px;
+  min-height: 28px;
+}

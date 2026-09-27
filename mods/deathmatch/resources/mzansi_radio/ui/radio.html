@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mzansi Radio - South Africa On Air</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="app">
+        <header class="topbar">
+            <div class="brand">
+                <span class="brand-icon">📻</span>
+                <div>
+                    <h1>Mzansi Radio</h1>
+                    <p class="subtitle">Broadcast &amp; Internet Streaming</p>
+                </div>
+            </div>
+
+            <!-- Tab Navigation -->
+            <div class="nav-tabs">
+                <button class="nav-tab active" id="tabBroadcast" data-tab="broadcast">📡 SA Broadcast</button>
+                <button class="nav-tab" id="tabInternet" data-tab="internet">🌐 Internet Streams</button>
+            </div>
+
+            <div class="now-playing" id="nowPlaying">
+                <div class="np-badge" id="npBadge">OFF AIR</div>
+                <div class="np-info">
+                    <span class="np-station" id="npStation">Select a station</span>
+                    <span class="np-sub" id="npSub">Tap to listen</span>
+                </div>
+            </div>
+            <button class="btn-close" id="btnClose" title="Close (F6 or Esc)">✕</button>
+        </header>
+
+        <!-- Broadcast Tab Content -->
+        <section class="tab-content active" id="contentBroadcast">
+            <div class="cit-banner" id="citBanner">
+                <span class="cit-star">🌟</span>
+                <div class="cit-text">
+                    <strong>CIT Radio South Africa</strong>
+                    <span id="citTribute">Official dedicated stream powered by the community. Full credit to the CIT Radio team!</span>
+                </div>
+                <button class="btn btn-gold" id="btnCit">Play CIT Radio</button>
+            </div>
+
+            <div class="controls">
+                <input type="text" id="searchBox" placeholder="Search 25+ SA stations, cities, frequencies, genres..." autocomplete="off" />
+                <div class="category-pills" id="categoryPills"></div>
+            </div>
+
+            <main class="station-grid" id="stationGrid">
+                <!-- Populated dynamically -->
+            </main>
+        </section>
+
+        <!-- Internet Radio Tab Content -->
+        <section class="tab-content" id="contentInternet">
+            <div class="custom-stream-card">
+                <h3>🔗 Custom Internet Audio Stream</h3>
+                <p>Paste any direct HTTP or HTTPS audio stream URL (MP3, AAC, OGG, or Icecast / Shoutcast link):</p>
+                <div class="custom-input-row">
+                    <input type="text" id="customUrlInput" placeholder="https://stream.example.com/live.mp3" autocomplete="off" />
+                    <input type="text" id="customTitleInput" placeholder="Stream Name (Optional)" style="max-width: 180px;" />
+                    <button class="btn btn-primary" id="btnPlayCustom">▶ Play Stream</button>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <h4>🌍 Curated Web &amp; International Streams</h4>
+            </div>
+            <div class="internet-presets-grid" id="internetPresetsGrid">
+                <!-- Populated dynamically with web streams -->
+            </div>
+        </section>
+
+        <footer class="player-bar" id="playerBar">
+            <div class="playback-controls">
+                <button class="btn btn-icon btn-stop" id="btnStop" title="Stop Playback">⏹</button>
+                <div class="sound-bars" id="soundBars">
+                    <span></span><span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="player-info">
+                <span class="player-station" id="playerStation">—</span>
+                <span class="player-freq" id="playerFreq">Ready</span>
+            </div>
+
+            <div class="volume-wrap">
+                <span>🔊</span>
+                <input type="range" id="volumeSlider" min="0" max="100" value="70" />
+                <span id="volumeVal">70%</span>
+            </div>
+        </footer>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_ai" description="In-game AI copilot bridge (Mode A fetchRemote + reflex fallback + agent tools v2)" version="2.0.0" type="script" />
+
+    <script src="shared/ai_config.lua" type="shared" />
+    <script src="server/ai_db.lua" type="server" />
+    <script src="server/ai_tools.lua" type="server" />
+    <script src="server/ai_bridge.lua" type="server" />
+    <script src="client/ai_ui.lua" type="client" />
+
+    <export function="getHistory" type="server" />
+    <export function="chat" type="server" />
+    <export function="listTools" type="server" />
+    <export function="runTool" type="server" />
+</meta>

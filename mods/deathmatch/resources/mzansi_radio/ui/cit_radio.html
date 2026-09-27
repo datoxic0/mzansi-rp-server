@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>CIT Radio - Tribute</title>
+    <style>
+        body { margin:0; font-family: 'Segoe UI', sans-serif; background:#0a0e1a; color:#eee; display:flex; align-items:center; justify-content:center; height:100vh; }
+        .card { background: linear-gradient(135deg,#1a1f35,#0f1428); border:1px solid #FFD700; border-radius:16px; padding:40px; max-width:560px; text-align:center; box-shadow: 0 0 40px rgba(255,215,0,0.15); }
+        .star { font-size:64px; }
+        h1 { color:#FFD700; margin:12px 0 4px; }
+        .tagline { color:#aaa; font-size:14px; margin-bottom:20px; }
+        .tribute { background:rgba(255,215,0,0.08); border-left:3px solid #FFD700; padding:16px; border-radius:8px; text-align:left; font-size:14px; line-height:1.6; color:#ddd; margin-bottom:24px; }
+        .btn { background:#FFD700; color:#000; border:none; padding:14px 32px; border-radius:8px; font-size:16px; font-weight:700; cursor:pointer; }
+        .btn:hover { background:#ffcc00; }
+        .btn.secondary { background:transparent; border:1px solid #555; color:#ccc; margin-left:12px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="star">🌟</div>
+        <h1>CIT Radio</h1>
+        <p class="tagline">Community of The Internet Radio</p>
+        <div class="tribute" id="tributeText">
+            This server proudly features CIT Radio. The CIT Team inspires us with their dedication to quality South African radio streaming. We humbly request permission to integrate their stream to enhance our media experience. Thank you CIT Radio for being a beacon of SA audio excellence.
+        </div>
+        <button class="btn" onclick="playCit()">▶ Play CIT Radio</button>
+        <button class="btn secondary" onclick="closeTribute()">Close</button>
+    </div>
+    <script>
+        function playCit() {
+            if (window.mta) { mta.callRemote("mzansi:radio:tune", "cit_radio", {}); }
+            window.close && window.close();
+        }
+        function closeTribute() { window.close && window.close(); }
+    </script>
+</body>
+</html>

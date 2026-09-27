@@ -1,0 +1,9 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_hud" description="HUD System" version="1.0.0" type="script" />
+
+    <file src="ui/hud.html" />
+
+    <script src="client/hud_client.lua" type="client" />
+
+    <html src="ui/hud.html" />
+</meta>

@@ -1,0 +1,32 @@
+<meta>
+    <info author="Mzansi RP Development Team" name="mzansi_living_world" description="Living World Simulation, Ambient AI &amp; Traffic" version="1.0.0" type="script" />
+
+    <!-- Shared Scripts -->
+    <script src="shared/enums.lua" type="shared" />
+    <script src="shared/config.lua" type="shared" />
+    <script src="shared/nodes_los_santos.lua" type="shared" />
+    <script src="shared/nodes_roads_los_santos.lua" type="shared" />
+    <script src="shared/nodes_san_fierro.lua" type="shared" />
+    <script src="shared/nodes_roads_san_fierro.lua" type="shared" />
+    <script src="shared/nodes_las_venturas.lua" type="shared" />
+    <script src="shared/nodes_roads_las_venturas.lua" type="shared" />
+
+    <!-- Server Scripts -->
+    <script src="server/spawner.lua" type="server" />
+    <script src="server/state_machine.lua" type="server" />
+    <script src="server/traffic_engine.lua" type="server" />
+    <script src="server/popcycle_engine.lua" type="server" />
+    <script src="server/landmarks.lua" type="server" />
+    <script src="server/interiors.lua" type="server" />
+    <script src="server/airport_traffic.lua" type="server" />
+
+    <!-- Client Scripts -->
+    <script src="client/ai_controller.lua" type="client" />
+    <script src="client/traffic_controller.lua" type="client" />
+    <script src="client/perception.lua" type="client" />
+    <script src="client/scenarios.lua" type="client" />
+
+    <!-- Exports -->
+    <export function="spawnPedAtNode" type="server" />
+    <export function="getActivePeds" type="server" />
+</meta>

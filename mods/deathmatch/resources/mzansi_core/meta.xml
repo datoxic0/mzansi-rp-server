@@ -1,0 +1,95 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_core" description="Mzansi RP Core Framework" version="1.0.0" type="script" />
+
+
+
+    <script src="shared/enums.lua" type="server" />
+    <script src="shared/config.lua" type="server" />
+    <script src="shared/class.lua" type="server" />
+    <script src="shared/util.lua" type="server" />
+    <script src="shared/road_network.lua" type="server" />
+    <script src="shared/group_config.lua" type="server" />
+    <script src="shared/vehicle_shop_config.lua" type="server" />
+
+    <script src="shared/enums.lua" type="client" />
+    <script src="shared/config.lua" type="client" />
+    <script src="shared/class.lua" type="client" />
+    <script src="shared/util.lua" type="client" />
+    <script src="shared/road_network.lua" type="client" />
+    <script src="shared/group_config.lua" type="client" />
+    <script src="shared/vehicle_shop_config.lua" type="client" />
+
+    <script src="server/database.lua" type="server" />
+    <script src="server/accounts.lua" type="server" />
+    <script src="server/characters.lua" type="server" />
+    <script src="server/vehicles.lua" type="server" />
+    <script src="server/world_populator.lua" type="server" />
+    <script src="server/activity_system.lua" type="server" />
+    <script src="server/taxi_system.lua" type="server" />
+    <script src="server/portals_system.lua" type="server" />
+    <script src="server/creator_setup.lua" type="server" />
+    <script src="shared/market_config.lua" type="server" />
+    <script src="server/asset_market.lua" type="server" />
+    <script src="shared/shop_config.lua" type="server" />
+    <script src="server/shop_system.lua" type="server" />
+    <script src="server/banking.lua" type="server" />
+    <script src="server/group_accounts.lua" type="server" />
+    <script src="server/vehicle_shop.lua" type="server" />
+    <script src="server/reserve_bank.lua" type="server" />
+
+    <script src="client/login.lua" type="client" />
+    <script src="client/hud.lua" type="client" />
+    <script src="client/modal.lua" type="client" />
+    <script src="client/dashboard.lua" type="client" />
+    <script src="client/activity_client.lua" type="client" />
+    <script src="client/respawn.lua" type="client" />
+    <script src="client/cutscene_engine.lua" type="client" />
+    <script src="client/cutscene_scenes.lua" type="client" />
+    <script src="client/flight_ui.lua" type="client" />
+    <script src="shared/market_config.lua" type="client" />
+    <script src="client/asset_market_ui.lua" type="client" />
+    <script src="shared/shop_config.lua" type="client" />
+    <script src="client/shop_ui.lua" type="client" />
+    <script src="client/banking_ui.lua" type="client" />
+    <script src="client/group_bank_ui.lua" type="client" />
+    <script src="client/vehicle_shop_ui.lua" type="client" />
+    <script src="client/reserve_ui.lua" type="client" />
+
+
+    <export function="getCharacter" />
+    <export function="addCash" />
+    <export function="removeCash" />
+    <export function="addBank" />
+    <export function="removeBank" />
+    <export function="addXP" />
+    <export function="setJob" />
+    <export function="setFaction" />
+    <export function="getCharacterField" />
+    <export function="setCharacterField" />
+
+    <export function="database_getGang" />
+    <export function="database_createGang" />
+    <export function="database_getGangMember" />
+    <export function="database_addGangMember" />
+    <export function="database_removeGangMember" />
+    <export function="database_getGangMembers" />
+    <export function="database_updateGangMemberRank" />
+    <export function="database_getTerritory" />
+    <export function="database_getAllTerritories" />
+    <export function="database_updateTerritoryOwner" />
+    <export function="database_getGangByLeader" />
+    <export function="database_getGangByName" />
+    <export function="database_logAction" />
+    <export function="getElementSpeed" type="shared" />
+    <export function="database_getAllAccounts" />
+    <export function="database_banAccount" />
+    <export function="database_query" type="server" />
+    <export function="sendNotification" />
+    <export function="createPlayerVehicle" type="server" />
+    <export function="loadPlayerVehicles" type="server" />
+    <export function="savePlayerVehicles" type="server" />
+    <export function="database_insert" type="server" />
+    <export function="database_update" type="server" />
+    <export function="database_delete" type="server" />
+    <export function="database_logTransaction" type="server" />
+</meta>

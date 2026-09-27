@@ -1,0 +1,24 @@
+<meta>
+    <info trackpack="true" author="BlueEagle" version="4.0.0" name="Liberty_City" />
+
+
+    <file type="client" src="eagleZones.txt" />
+
+
+    <file type="client" src="interiors.map" />
+
+
+    <file type="client" src="water.dat" />
+
+
+    <file type="client" src="zones/*/*.map" />
+    <file type="client" src="zones/*/*.definition" />
+
+    <file type="client" src="imgs/dff.img" />
+    <file type="client" src="imgs/col.img" />
+    <file type="client" src="imgs/txd.img" />
+
+    <file src="tracks/tracks.xml" type="client" />
+    <file src="tracks/*.png" type="client" />
+    <file src="tracks/**/*.png" type="client" />
+</meta>

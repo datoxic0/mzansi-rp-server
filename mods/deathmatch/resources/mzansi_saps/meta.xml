@@ -1,0 +1,21 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_saps" description="South African Police Service" version="1.0.0" type="script" />
+    <file src="ui/mdt.html" />
+    <html src="ui/mdt.html" />
+
+    <script src="shared/enums.lua" type="server" />
+    <script src="shared/config.lua" type="server" />
+    <script src="shared/util.lua" type="server" />
+    <script src="server/database.lua" type="server" />
+    <script src="server/characters.lua" type="server" />
+
+    <script src="shared/saps_config.lua" type="shared" />
+
+    <script src="server/saps.lua" type="server" />
+    <script src="shared/enums.lua" type="client" />
+    <script src="shared/config.lua" type="client" />
+    <script src="shared/util.lua" type="client" />
+    <script src="client/saps_client.lua" type="client" />
+
+    <export function="isOfficer" />
+</meta>

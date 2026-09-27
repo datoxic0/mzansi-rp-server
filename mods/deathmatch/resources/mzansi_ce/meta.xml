@@ -1,0 +1,13 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_ce" description="Computer Engineer job - tickets and sandbox" version="1.0.0" type="script" />
+
+    <script src="shared/tickets.lua" type="shared" />
+    <script src="server/sandbox.lua" type="server" />
+    <script src="server/tickets.lua" type="server" />
+    <script src="client/ce_ui.lua" type="client" />
+
+    <export function="listTickets" type="server" />
+    <export function="completeTicket" type="server" />
+    <export function="evalSnippet" type="server" />
+    <export function="tutorHint" type="server" />
+</meta>

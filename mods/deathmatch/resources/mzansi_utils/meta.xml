@@ -1,0 +1,15 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_utils" description="Utility Functions" version="1.0.0" type="script" />
+
+    <script src="shared/utils.lua" type="shared" />
+
+    <export function="formatCurrency" type="shared" />
+    <export function="getTimestamp" type="shared" />
+    <export function="getFormattedDate" type="shared" />
+    <export function="tableLength" type="shared" />
+    <export function="randomString" type="shared" />
+    <export function="getElementSpeed" type="shared" />
+    <export function="getDistanceBetween" type="shared" />
+    <export function="round" type="shared" />
+    <export function="clamp" type="shared" />
+</meta>

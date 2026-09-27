@@ -1,0 +1,7 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_freeroam" description="Mzansi RP Freeroam Creator Menu (Ngamla)" version="1.0.0" type="script" />
+
+    <script src="server/freeroam.lua" type="server" />
+
+    <script src="client/freeroam_menu.lua" type="client" />
+</meta>

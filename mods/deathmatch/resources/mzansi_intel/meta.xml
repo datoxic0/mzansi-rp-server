@@ -1,0 +1,11 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_intel" description="God's Eye View inspired situational awareness - aircraft contacts, detection overlay, tactical HUD" version="1.0.0" type="script" />
+
+    <script src="shared/config.lua" type="shared" />
+    <script src="server/intel.lua" type="server" />
+    <script src="client/hud.lua" type="client" />
+    <script src="client/contacts.lua" type="client" />
+
+    <export function="getContacts" type="client" />
+    <export function="toggleIntelHUD" type="client" />
+</meta>

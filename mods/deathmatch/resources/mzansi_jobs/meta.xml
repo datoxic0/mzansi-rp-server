@@ -1,0 +1,15 @@
+<meta>
+    <info author="Mzansi Development Team" name="mzansi_jobs" description="Job System" version="1.0.0" type="script" />
+    <script src="shared/enums.lua" type="server" />
+    <script src="shared/config.lua" type="server" />
+    <script src="shared/util.lua" type="server" />
+    <script src="server/database.lua" type="server" />
+    <script src="server/characters.lua" type="server" />
+
+    <script src="shared/job_config.lua" type="shared" />
+    <script src="server/jobs.lua" type="server" />
+    <script src="shared/enums.lua" type="client" />
+    <script src="shared/config.lua" type="client" />
+    <script src="shared/util.lua" type="client" />
+    <script src="client/jobs_client.lua" type="client" />
+</meta>
